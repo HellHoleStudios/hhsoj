@@ -1,0 +1,18 @@
+{
+	"cpp":{
+		"ext":"cpp",
+		"name":"GNU C++ 11",
+		"compileCmd":["g++","Main.cpp","-o","Main.exe","-O2","-DONLINE_JUDGE","-std=gnu++11"],
+		"runCmd":["./Main.exe"],
+		"opCode":[1,2,3,4],
+		"file":[]
+	},
+	"python":{
+		"ext":"py",
+		"name":"Python 3",
+		"compileCmd":[],
+		"runCmd":["python3","Main.py"],
+		"opCode":[12,21,257,5,9,3,0,10,158,11,218,273,13,14,302,202,318,16,4,89,99,131,78,72,8,39,32,107,102,108,104,6,79,1,231],
+		"file":[]
+	}
+}

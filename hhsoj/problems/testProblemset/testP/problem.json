@@ -1,0 +1,21 @@
+{
+	"name":"Test Problem<sup>&alpha;&beta;&gamma;&delta;&epsilon;&eta;</sup>",
+	"tl":1000,
+	"ml":262144,
+	"ver":6,
+	"order":["easy","hard"],
+	"tests":{
+		"easy":{
+			"scheme":"min",
+			"requirement:":[],
+			"toEnd":true,
+			"score":60
+		},
+		"hard":{
+			"scheme":"sum",
+			"requirement":["easy"],
+			"toEnd":false,
+			"score":20
+		}
+	}
+}

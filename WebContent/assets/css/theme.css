@@ -1,0 +1,162 @@
+/* HHSOJ default theme */
+/* by Zzzyt from Hell Hole Studios*/
+span, th, td, pre, code {
+	font-family: 'Consolas', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+
+[class~="btn"], input[type~=button], input[type~=submit], button {
+	font-family: 'Consolas', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+
+.topbar {
+	font-family: 'Consolas', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+	font-family: 'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Noto Sans CJK JP', 'Noto Sans SC', 'Noto Sans', 'Roboto', sans-serif;
+}
+
+[class~="title"] {
+	font-family: 'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Noto Sans CJK JP', 'Noto Sans SC', 'Noto Sans', 'Roboto', sans-serif;
+}
+
+.title-right {
+	font-family: 'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Noto Sans CJK JP', 'Noto Sans SC', 'Noto Sans', 'Roboto', sans-serif;
+}
+
+.title-left {
+	font-weight: bold;
+}
+
+.topbar-item a {
+	font-weight: bold;
+}
+
+.hljs {
+	border-radius: 3px;
+}
+
+.topbar-item {
+	transition: 0.2s;
+}
+
+body {
+	background: #f8f8f8;
+}
+
+.container {
+	background: #f8f8f8;
+}
+
+table {
+	background: #ffffff;
+}
+
+table>tbody>tr>th {
+	background: #dee2e6;
+}
+
+table>tr>th {
+	background: #dee2e6;
+}
+
+code, kbd, pre, samp {
+	border-radius: 3px;
+	background-color: #f0f0f0;
+}
+
+code:empty, kdb:empty, pre:empty, samp:empty {
+	border-radius: 0px;
+	visibility: hidden;
+}
+
+/* Markdown:Anchor */
+.octicon {
+	color: #1b1f23;
+}
+
+.title-right p, .title-right span, .title-right i, .title-right b {
+	color: #777777;
+}
+
+.topbar-item:hover {
+	background: #777777;
+}
+
+.navbar-brand:hover {
+	background: #777777;
+}
+
+.vcard-verdict {
+	font-weight: bold;
+	color: #ffff;
+}
+
+.vcard-score {
+	font-weight: bold;
+	color: #ffffff;
+}
+
+.vcard-tm {
+	color: #ffffff;
+}
+
+.vcard-test {
+	color: #ffffff;
+}
+
+.vcard:hover {
+	filter: brightness(85%);
+}
+
+.vcard {
+	background: #aaaaaa;
+	transition: 0.3s;
+	font-family: 'Consolas', 'DejaVu Sans Mono', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+
+.vcard *{
+	font-family: inherit;
+}
+
+.vcard-ac {
+	background: #00cc00;
+}
+
+.vcard-wa {
+	background: #0000dd;
+}
+
+.vcard-tle {
+	background: #ff8800;
+}
+
+.vcard-mle {
+	background: #aa00aa;
+}
+
+.vcard-re {
+	background: #dd0000;
+}
+
+.vcard-rf {
+	background: #ccbb00;
+}
+
+.vcard-pt {
+	background: #66ccff;
+}
+
+.copy-btn {
+	color: #999999;
+	background-color: transparent;
+}
+
+.copy-btn:hover {
+	color: #ffffff;
+	background-color: #666666;
+}
+
+.colored-header span {
+	color: #ffffff;
+}

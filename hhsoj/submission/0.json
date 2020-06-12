@@ -1,0 +1,1 @@
+{"code":"#include \u003ciostream\u003e\nusing namespace std;\nint main(){cout\u003c\u003c\"Hello,World\"\u003c\u003cendl;}","lang":"cpp","author":"XGN","submitTime":1579504934764,"judger":"","id":0,"res":{},"compilerInfo":"","score":0.0,"isFinal":false,"problemSet":"testProblemSet","problemId":"testP","test":"Init"}

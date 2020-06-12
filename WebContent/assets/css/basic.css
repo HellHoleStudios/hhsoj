@@ -1,0 +1,304 @@
+/* HHSOJ basic CSS file */
+/* by Zzzyt from Hell Hole Studios*/
+body {
+	min-width: 590px;
+}
+
+hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	clear: both;
+}
+
+input[type=button], input[type=submit], button {
+	margin: 5px;
+}
+
+a[class~="btn"] {
+	margin: 5px;
+}
+
+div[class~="input-group"] {
+	margin: 5px;
+}
+
+table {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+code, kbd, pre, samp {
+	padding: 3px 6px !important;
+}
+
+pre {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+pre>code {
+	padding: 0em !important;
+}
+
+/* Sorry Bootstrap, but flexs are just too hard to handle */
+.card {
+	display: block;
+}
+
+
+/* Markdown:Anchor style*/
+/* from excing, slightly modified by Zzzyt */
+h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
+	h5:hover .octicon, h6:hover .octicon {
+	visibility: visible;
+}
+
+.anchor {
+	line-height: 1;
+	margin-left: -20px;
+	padding-right: 4px;
+}
+
+.anchor:focus .octicon {
+	visibility: visible;
+}
+
+.octicon {
+	display: inline-block;
+	fill: currentColor;
+	vertical-align: middle;
+	visibility: hidden;
+}
+
+/* Markdown:Catalog style */
+/* from excing, slightly modified by Zzzyt */
+.cat ul {
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 0px;
+}
+
+.cat ul ul {
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 40px;
+}
+
+.cat li, li {
+	padding-top: 0em;
+	padding-bottom: 0em;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.container {
+	border-radius:10px;
+	padding: 15px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+@media ( max-width :576px ) {
+	.container {
+		width: 540px;
+	}
+}
+
+.title-right {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 16px;
+	float: right;
+	text-align: right;
+}
+
+.title-left {
+	display: inline;
+}
+
+.title {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+.subtitle {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	float: left;
+	clear: both;
+	margin-bottom: 10px;
+}
+
+.topbar-item a {
+	font-size: 22px;
+	line-height: 34px;
+	padding-left: 8px !important;
+	padding-right: 8px !important;
+}
+
+.navbar-brand img {
+	width: 40px;
+}
+
+.navbar-brand {
+	padding-left: 10px;
+	transition: 0.2s;
+	padding-right: 10px;
+	margin: 0px;
+}
+
+@media ( min-width : 768px ) {
+	.topbar-nav{
+		height:50px;
+	}
+}
+
+.ml-auto {
+	margin-left: 0px !important;
+}
+
+.mr-auto {
+	margin-right: 0px !important;
+	float: right !important;
+	margin-left: auto !important;
+}
+
+.topbar {
+	padding:0px;
+}
+
+.topbar-nav {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.card-collapse {
+	margin-bottom: 10px;
+}
+
+.nostyle, .nostyle:hover, .nostyle:visited, .notstyle:active {
+	text-decoration: none;
+}
+
+.status-table {
+	align-self: center;
+	margin: 0px auto;
+	min-width: 500px;
+}
+
+.center-form {
+	margin: 0px auto;
+	margin-top: 50px;
+	width: 300px;
+}
+
+.vcard-collapse {
+	padding: 0px 20px;
+}
+
+.vcard {
+	margin: 3px;
+	float: left;
+	width: 100px;
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: .25rem;
+	cursor: pointer;
+}
+
+.vcard-detail {
+	margin: 3px;
+	clear: both;
+	border-radius: .25rem;
+}
+
+@media ( min-width :768px ) {
+	.vcard {
+		margin: 10px;
+	}
+	.vcard-detail {
+		margin: 10px;
+	}
+}
+
+@media ( min-width :1200px ) {
+	.vcard {
+		margin: 7px;
+	}
+	.vcard-detail {
+		margin: 7px;
+	}
+}
+
+.vcard-verdict {
+	line-height: 40px;
+	font-size: 40px;
+}
+
+.vcard-score {
+	line-height: 40px;
+	font-size: 28px;
+}
+
+.vcard-tm {
+	font-size: 12px;
+}
+
+.vcard-test {
+	width: 90px;
+	font-size: 12px;
+}
+
+.vcard-hide {
+	display: none;
+}
+
+.vcard:hover>.vcard-hide {
+	display: block !important;
+}
+
+.vcard-show {
+	display: block;
+}
+
+.vcard:hover>.vcard-show {
+	display: none !important;
+}
+
+@media ( min-width : 768px ) {
+	.copy-btn-wrapper {
+		display: block ! important;
+	}
+}
+
+.copy-btn-wrapper {
+	display: none;
+	margin: 0px;
+	position: relative;
+}
+
+.copy-btn {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	margin: 0px;
+	z-index: 10;
+	display: block;
+	font-size: 12px;
+	cursor: pointer;
+	border: 0;
+	border-top-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
