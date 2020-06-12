@@ -1,3 +1,6 @@
+<%@page import="com.hhstudios.hhsoj.common.FileUtil"%>
+<%@page import="java.io.File"%>
+<%@page import="com.hhstudios.hhsoj.common.MarkdownHelper"%>
 <%@page import="com.hhstudios.hhsoj.common.Problem"%>
 <%@page import="java.util.Date"%>
 <%@page import="com.hhstudios.hhsoj.common.Problemset"%>
@@ -38,13 +41,22 @@
 		<span><%=p.tl %>ms / <%=p.ml %> KB<br/>Difficulty:<%=p.diff %>x</span>
 		
 		<hr/>
-		<div id="txt">Loading Statement...</div>
+		<%
+			String path=TomcatHelper.getProblemPath(set,id);
+			
+			File f1=new File(path+"/statement.md");
+			String data="zjszjs";
+			if(f1.exists()){
+				data=FileUtil.readFile(f1.getAbsolutePath());
+			}
+		%>
+		<div id="txt"><%=MarkdownHelper.convert(data) %></div>
 		<div id="diagram"></div>
 		<hr/>
 		
 		<a class="btn btn-primary" href="submit.jsp?set=<%=p.set%>&id=<%=p.id%>">Submit</a>
 	</div>
-	<script>
+	<%-- <script>
 		$.post("requireStatement",{
 			"set":"<%=p.set%>",
 			"id":"<%=p.id%>"
@@ -54,6 +66,6 @@
 		    document.getElementById("txt").innerHTML=html;
 		    reloadAll();
 		})
-	</script>
+	</script> --%>
 </body>
 </html>

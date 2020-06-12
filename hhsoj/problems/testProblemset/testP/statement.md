@@ -86,19 +86,19 @@ $$
 
 ![hhsoj](assets/img/hhsoj256x.png)
 
-![pic](data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs= =30x40)
+![pic](data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=)
 
 # Audio
 
-![Reimu](https://upload.thwiki.cc/b/b5/th15_01.mp3)
+!A[Reimu](https://upload.thwiki.cc/b/b5/th15_01.mp3)
 
 # Video
 
-<!-- ![Youtube Video](https://www.youtube.com/watch?v=mjl4NEMG0JE)
+<!--![Youtube Video](https://www.youtube.com/watch?v=mjl4NEMG0JE)
 ![Bilibili Video](av24502821 =500x250)
 <br/>
 !(https://www.bilibili.com/av24502821 =800x600)
 <br/>
 ![Bilibili Video](av24502821?p=2)
 <br/>
-![Bilibili Video](https://www.bilibili.com/av24502821?p=10)  -->
+![Bilibili Video](https://www.bilibili.com/av24502821?p=10)-->
