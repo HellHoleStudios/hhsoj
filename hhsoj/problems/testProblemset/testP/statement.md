@@ -8,13 +8,13 @@ Please print "Hello,World!"(no quotes).
 
 # 這是繁體中文字符
 
-# 博麗神社は、現在の幻想郷に無くてはならない大結界を見張る神社であり、博麗の巫女は代々異変解決を生業としている。
+# 博麗の巫女は代々異変解決を生業としている。
 
-# Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn.
+# Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả
 
-# Lúgéte, ó Venerés Cupídinésque.
+# Lúgéte, ó Venerés Cupídinésque
 
-# هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز
+# هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى 
 
 # Testing Area
 
@@ -84,7 +84,17 @@ $$
 
 # Picture
 
-![hhsoj](assets/img/hhsoj256x.png)
+![hhsoj](assets/img/HHSOJct512x.png)
+
+![hhsoj](assets/img/HHSOJc512x.png)
+
+![hhsoj](assets/img/HHSOJ512x.png)
+
+![hhsoj](assets/img/HHSOJct.svg)
+
+![hhsoj](assets/img/HHSOJc.svg)
+
+![hhsoj](assets/img/HHSOJ.svg)
 
 ![pic](data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=)
 

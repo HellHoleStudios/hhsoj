@@ -50,8 +50,7 @@
 				data=FileUtil.readFile(f1.getAbsolutePath());
 			}
 		%>
-		<div id="txt"><%=MarkdownHelper.convert(data) %></div>
-		<div id="diagram"></div>
+		<div id="statement"><%=MarkdownHelper.convert(data) %></div>
 		<hr/>
 		
 		<a class="btn btn-primary" href="submit.jsp?set=<%=p.set%>&id=<%=p.id%>">Submit</a>
