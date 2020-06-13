@@ -1,12 +1,10 @@
-package com.hellhole.hhsoj.common;
+package com.hellhole.hhsoj.common.markdown;
 
 import java.util.Arrays;
 
-import com.vladsch.flexmark.ext.anchorlink.AnchorLinkExtension;
+import com.hellhole.hhsoj.common.markdown.ext.media.MediaTagsExtension;
 import com.vladsch.flexmark.ext.gfm.strikethrough.StrikethroughExtension;
-import com.vladsch.flexmark.ext.media.tags.MediaTagsExtension;
 import com.vladsch.flexmark.ext.tables.TablesExtension;
-import com.vladsch.flexmark.ext.youtube.embedded.YouTubeLinkExtension;
 import com.vladsch.flexmark.html.HtmlRenderer;
 import com.vladsch.flexmark.parser.Parser;
 import com.vladsch.flexmark.util.ast.Node;
@@ -20,10 +18,10 @@ public class MarkdownHelper {
 
 	private static void init() {
 		MutableDataSet options = new MutableDataSet();
-		options.set(Parser.EXTENSIONS, Arrays.asList(TablesExtension.create(), StrikethroughExtension.create(),
-				AnchorLinkExtension.create(), YouTubeLinkExtension.create(), MediaTagsExtension.create()));
-		options.set(AnchorLinkExtension.ANCHORLINKS_TEXT_PREFIX, anchor);
-		options.set(AnchorLinkExtension.ANCHORLINKS_ANCHOR_CLASS, "anchor");
+		options.set(Parser.EXTENSIONS, Arrays.asList(
+				TablesExtension.create(),
+				StrikethroughExtension.create(),
+				MediaTagsExtension.create()));
 		parser = Parser.builder(options).build();
 		renderer = HtmlRenderer.builder(options).build();
 	}

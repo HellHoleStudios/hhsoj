@@ -1,22 +1,22 @@
-[TOC]
+I think we should use `h3` tag for titles.
 
-# Statement
+### Statement
 
 Please print "Hello,World!"(no quotes).
 
-# 这是简体中文字符
+### 这是简体中文字符
 
-# 這是繁體中文字符
+### 這是繁體中文字符
 
-# 博麗の巫女は代々異変解決を生業としている。
+### 博麗の巫女は代々異変解決を生業としている。
 
-# Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả
+### Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả
 
-# Lúgéte, ó Venerés Cupídinésque
+### Lúgéte, ó Venerés Cupídinésque
 
-# هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى 
+### هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى 
 
-# Testing Area
+### Testing Area
 
 [Go to our repo on Github!](https://www.github.com/XiaoGeNintendo/HHSOJ-Essential)
 
@@ -37,8 +37,6 @@ inline code `printf()` or `freopen("test.in","r",stdin)`.
 
 ------------
 
-# Sample Code
-## Sample Code
 ### Sample Code
 #### Sample Code
 ##### Sample Code
@@ -58,7 +56,7 @@ int main(){
 }
 ```
 
-# **MathJax**
+### **MathJax**
 
 $ x^2=y^2 $
 
@@ -82,7 +80,7 @@ $$
 Double=\iint^{dollar}_{sign}f(works)
 $$
 
-# Picture
+### Picture
 
 ![hhsoj](assets/img/HHSOJct512x.png)
 
@@ -98,17 +96,30 @@ $$
 
 ![pic](data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=)
 
-# Audio
+### Audio
 
-!A[Reimu](https://upload.thwiki.cc/b/b5/th15_01.mp3)
+#### Raw Audio Link
+![Reimu](https://upload.thwiki.cc/b/b5/th15_01.mp3)
 
-# Video
+#### Fake Audio
+![FakeReimu](https://upload.thwiki.cc/b/b5/th15_01.mp2)
 
-<!--![Youtube Video](https://www.youtube.com/watch?v=mjl4NEMG0JE)
-![Bilibili Video](av24502821 =500x250)
-<br/>
-!(https://www.bilibili.com/av24502821 =800x600)
-<br/>
-![Bilibili Video](av24502821?p=2)
-<br/>
-![Bilibili Video](https://www.bilibili.com/av24502821?p=10)-->
+### Video
+
+#### Raw Video Link
+![SomeVideo](http://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_640_3MG.mp4)
+
+#### Youtube Video
+![Youtube Video](https://www.youtube.com/watch?v=mjl4NEMG0JE)
+
+#### Bilibili BV Video
+![Bilibili Video](https://www.bilibili.com/video/BV19E411j7tC)
+![Bilibili Video with P](https://www.bilibili.com/video/BV1V7411h7cX?p=237)
+
+#### Bilibili iframe
+<iframe src="//player.bilibili.com/player.html?bvid=BV1V7411h7cX&page=237" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+#### Fake Video
+![SomeFakeVideo](http://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_640_3MG.mp5)
+
+

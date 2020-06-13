@@ -1,6 +1,6 @@
 <%@page import="com.hellhole.hhsoj.common.FileUtil"%>
 <%@page import="java.io.File"%>
-<%@page import="com.hellhole.hhsoj.common.MarkdownHelper"%>
+<%@page import="com.hellhole.hhsoj.common.markdown.MarkdownHelper"%>
 <%@page import="com.hellhole.hhsoj.common.Problem"%>
 <%@page import="java.util.Date"%>
 <%@page import="com.hellhole.hhsoj.common.Problemset"%>

@@ -9,6 +9,18 @@ Note: this repository is a fork of [XiaoGeNintendo/HHSOJ-Essential](https://gith
 However I changed the project structure so much that I decided to create a new repo instead of forking.
 This version is equipped with Maven and other development tools.
 
+# Credit
+The frontend is run on [Apache Tomcat](https://tomcat.apache.org/).
+
+JSON parsing with [Gson](https://github.com/google/gson).
+
+Server-side markdown rendering with [flexmark](https://github.com/vsch/flexmark-java).
+
+Flexmark extensions include:
+- flexmark-ext-gfm-strikethrough
+- flexmark-ext-tables
+- flexmark-ext-media-tags (Modified)
+
 # Links
 [Documentation on everything](https://xgn.gitbook.io/hhsoj-essential-doc/)
 
