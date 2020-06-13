@@ -1,6 +1,6 @@
 <%@page import="java.util.Date"%>
-<%@page import="com.hhstudios.hhsoj.common.Problemset"%>
-<%@page import="com.hhstudios.hhsoj.tomcat.util.TomcatHelper"%>
+<%@page import="com.hellhole.hhsoj.common.Problemset"%>
+<%@page import="com.hellhole.hhsoj.tomcat.util.TomcatHelper"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

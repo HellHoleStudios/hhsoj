@@ -1,12 +1,12 @@
-<%@page import="com.hhstudios.hhsoj.common.StyleUtil"%>
-<%@page import="com.hhstudios.hhsoj.common.TestResult"%>
-<%@page import="com.hhstudios.hhsoj.common.TestsetResult"%>
+<%@page import="com.hellhole.hhsoj.common.StyleUtil"%>
+<%@page import="com.hellhole.hhsoj.common.TestResult"%>
+<%@page import="com.hellhole.hhsoj.common.TestsetResult"%>
 <%@page import="java.util.Map.Entry"%>
-<%@page import="com.hhstudios.hhsoj.common.Submission"%>
-<%@page import="com.hhstudios.hhsoj.common.Problem"%>
+<%@page import="com.hellhole.hhsoj.common.Submission"%>
+<%@page import="com.hellhole.hhsoj.common.Problem"%>
 <%@page import="java.util.Date"%>
-<%@page import="com.hhstudios.hhsoj.common.Problemset"%>
-<%@page import="com.hhstudios.hhsoj.tomcat.util.TomcatHelper"%>
+<%@page import="com.hellhole.hhsoj.common.Problemset"%>
+<%@page import="com.hellhole.hhsoj.tomcat.util.TomcatHelper"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>

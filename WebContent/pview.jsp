@@ -1,10 +1,10 @@
-<%@page import="com.hhstudios.hhsoj.common.FileUtil"%>
+<%@page import="com.hellhole.hhsoj.common.FileUtil"%>
 <%@page import="java.io.File"%>
-<%@page import="com.hhstudios.hhsoj.common.MarkdownHelper"%>
-<%@page import="com.hhstudios.hhsoj.common.Problem"%>
+<%@page import="com.hellhole.hhsoj.common.MarkdownHelper"%>
+<%@page import="com.hellhole.hhsoj.common.Problem"%>
 <%@page import="java.util.Date"%>
-<%@page import="com.hhstudios.hhsoj.common.Problemset"%>
-<%@page import="com.hhstudios.hhsoj.tomcat.util.TomcatHelper"%>
+<%@page import="com.hellhole.hhsoj.common.Problemset"%>
+<%@page import="com.hellhole.hhsoj.tomcat.util.TomcatHelper"%>
 <%@page import="java.util.ArrayList"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

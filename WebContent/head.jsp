@@ -6,9 +6,8 @@
 <meta name="description" content="HellOJ - Free OJ by Hell Hole Studios">
 <meta name="keywords" content="OJ HellOJ HHSOJ Online Judge">
 
-<link rel="icon" type="image/png" href="assets/img/hhsoj16x.png" sizes="16x16">
-<link rel="icon" type="image/png" href="assets/img/hhsoj32x.png" sizes="32x32">
-<link rel="icon" type="image/png" href="assets/img/hhsoj128x.png" sizes="128x128">
+<link rel="icon" type="image/png" href="assets/img/HHSOJ16x.png" sizes="16x16">
+<link rel="icon" type="image/png" href="assets/img/HHSOJ32x.png" sizes="32x32">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=optional">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=optional">
