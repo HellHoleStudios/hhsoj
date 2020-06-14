@@ -47,5 +47,15 @@
   		<artifactId>flexmark-ext-tables</artifactId>
   		<version>0.62.2</version>
   	</dependency>
+  	<dependency>
+  		<groupId>com.vladsch.flexmark</groupId>
+  		<artifactId>flexmark-ext-toc</artifactId>
+  		<version>0.62.2</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.vladsch.flexmark</groupId>
+  		<artifactId>flexmark-ext-anchorlink</artifactId>
+  		<version>0.62.2</version>
+  	</dependency>
   </dependencies>
 </project>

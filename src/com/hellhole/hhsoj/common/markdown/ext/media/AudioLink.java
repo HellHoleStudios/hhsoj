@@ -5,15 +5,12 @@ import com.hellhole.hhsoj.common.markdown.ext.media.internal.AbstractMediaLink;
 
 public class AudioLink extends AbstractMediaLink {
 
-    final public static String PREFIX = "!A";
-    final private static String TYPE = "Audio";
-
     public AudioLink() {
-        super(PREFIX, TYPE);
+        super();
     }
 
     public AudioLink(Image other) {
-        super(PREFIX, TYPE, other);
+        super(other);
     }
 
     // This class leaves room for specialization, should we need it.

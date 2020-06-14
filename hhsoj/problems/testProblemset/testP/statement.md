@@ -1,3 +1,5 @@
+[TOC]
+
 I think we should use `h3` tag for titles.
 
 ### Statement
@@ -82,17 +84,9 @@ $$
 
 ### Picture
 
-![hhsoj](assets/img/HHSOJct512x.png)
+![hhsoj](assets/img/HHSOJct128x.png)
 
-![hhsoj](assets/img/HHSOJc512x.png)
-
-![hhsoj](assets/img/HHSOJ512x.png)
-
-![hhsoj](assets/img/HHSOJct.svg)
-
-![hhsoj](assets/img/HHSOJc.svg)
-
-![hhsoj](assets/img/HHSOJ.svg)
+![hhsoj](assets/img/anchor.svg)
 
 ![pic](data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=)
 
@@ -111,6 +105,10 @@ $$
 
 #### Youtube Video
 ![Youtube Video](https://www.youtube.com/watch?v=mjl4NEMG0JE)
+
+#### Youtu.be Video
+![Youtube Video](https://youtu.be/watch?v=mjl4NEMG0JE)
+![Youtube Video](https://youtu.be/mjl4NEMG0JE)
 
 #### Bilibili BV Video
 ![Bilibili Video](https://www.bilibili.com/video/BV19E411j7tC)

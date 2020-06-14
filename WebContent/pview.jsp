@@ -55,16 +55,5 @@
 		
 		<a class="btn btn-primary" href="submit.jsp?set=<%=p.set%>&id=<%=p.id%>">Submit</a>
 	</div>
-	<%-- <script>
-		$.post("requireStatement",{
-			"set":"<%=p.set%>",
-			"id":"<%=p.id%>"
-		},function(data,status){
-		    var text=data;
-		    html=converter.makeHtml(text);
-		    document.getElementById("txt").innerHTML=html;
-		    reloadAll();
-		})
-	</script> --%>
 </body>
 </html>

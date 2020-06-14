@@ -3,13 +3,13 @@ package com.hellhole.hhsoj.common.markdown.ext.media;
 import com.vladsch.flexmark.ast.Image;
 import com.hellhole.hhsoj.common.markdown.ext.media.internal.AbstractMediaLink;
 
-public class VideoLink extends AbstractMediaLink {
+public class BilibiliLink extends AbstractMediaLink {
 
-    public VideoLink() {
+    public BilibiliLink() {
         super();
     }
 
-    public VideoLink(Image other) {
+    public BilibiliLink(Image other) {
         super(other);
     }
 
