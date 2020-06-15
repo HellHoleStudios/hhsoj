@@ -137,12 +137,4 @@ public class StyleUtil {
 		return mixColorSquared(238, 238, 0, 0, 238, 0, 1.0f - x, x - 0.7f);
 	}
 
-	public static String encodeEntity(String s) {
-		return s.replace("&", "&amp;")
-				.replace("<", "&lt;")
-				.replace(">", "&gt;")
-				.replace("\"", "&quot;")
-				.replace("'", "&apos;");
-	}
-
 }

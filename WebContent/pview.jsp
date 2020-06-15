@@ -1,6 +1,7 @@
 <%@page import="com.hellhole.hhsoj.common.FileUtil"%>
 <%@page import="java.io.File"%>
 <%@page import="com.hellhole.hhsoj.common.markdown.MarkdownHelper"%>
+<%@page import="com.hellhole.hhsoj.common.Sanitizer"%>
 <%@page import="com.hellhole.hhsoj.common.Problem"%>
 <%@page import="java.util.Date"%>
 <%@page import="com.hellhole.hhsoj.common.Problemset"%>
@@ -50,7 +51,7 @@
 				data=FileUtil.readFile(f1.getAbsolutePath());
 			}
 		%>
-		<div id="statement"><%=MarkdownHelper.convert(data) %></div>
+		<div id="statement"><%=Sanitizer.sanitizeMarkdown(MarkdownHelper.convert(data)) %></div>
 		<hr/>
 		
 		<a class="btn btn-primary" href="submit.jsp?set=<%=p.set%>&id=<%=p.id%>">Submit</a>

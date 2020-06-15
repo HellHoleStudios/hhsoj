@@ -51,6 +51,7 @@ code, kbd, pre, samp {
 		<i style="padding-left:360px;">---Zzzyt</i><br/>
 		<br/>
 		<a href="javascript:history.back(0);">Back to where I came from</a><br/>
+		<a href="<%=request.getContextPath().replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")%>/">Back to home</a><br/>
 		<br/>
 		<br/>
 		<h2>Raw stack trace:</h2>

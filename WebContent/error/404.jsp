@@ -1,3 +1,4 @@
+<%@page import="org.apache.catalina.Context"%>
 <%@ page isErrorPage="true"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -49,6 +50,7 @@ code, kbd, pre, samp {
 		<i style="padding-left:360px;">---XiaoGeNintendo</i><br/>
 		<br/>
 		<a href="javascript:history.back(0);">Back to where I came from</a><br/>
+		<a href="<%=request.getContextPath().replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")%>/">Back to home</a><br/>
 	</div>
 </body>
 </html>

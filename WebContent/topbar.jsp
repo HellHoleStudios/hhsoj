@@ -3,7 +3,7 @@
 	pageEncoding="UTF-8"%>
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top topbar">
-	<a class="navbar-brand" href="index.jsp"> 
+	<a class="navbar-brand" href="<%=request.getContextPath().replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")%>/"> 
 		<img src="assets/img/HHSOJct128x.png" alt="Logo">
 	</a>
 

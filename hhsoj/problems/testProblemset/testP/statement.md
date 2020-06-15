@@ -95,29 +95,46 @@ $$
 #### Raw Audio Link
 ![Reimu](https://upload.thwiki.cc/b/b5/th15_01.mp3)
 
-#### Fake Audio
 ![FakeReimu](https://upload.thwiki.cc/b/b5/th15_01.mp2)
+
+#### XSS
+<script>alert(1);</script>
+
+<!--
+### Invisible! This is html comment.
+-->
 
 ### Video
 
 #### Raw Video Link
 ![SomeVideo](http://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_640_3MG.mp4)
 
+![SomeFakeVideo](http://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_640_3MG.zjs)
+
 #### Youtube Video
 ![Youtube Video](https://www.youtube.com/watch?v=mjl4NEMG0JE)
-
-#### Youtu.be Video
+![Youtube Video](www.youtube.com/watch?v=mjl4NEMG0JE)
+![Youtube Video](youtube.com/watch?v=mjl4NEMG0JE&t=300)
+![Youtube Video](//youtube.com/watch?v=mjl4NEMG0JE&t=300)
+![Youtube Video](//www.youtube.com/watch?v=mjl4NEMG0JE&t=200)
 ![Youtube Video](https://youtu.be/watch?v=mjl4NEMG0JE)
-![Youtube Video](https://youtu.be/mjl4NEMG0JE)
+![Youtube Video](http://youtu.be/mjl4NEMG0JE)
+![Youtube Video](//youtu.be/mjl4NEMG0JE)
+![Fake Youtube Video](/youtu.be/mjl4NEMG0JE)
+![Fake Youtube Video](https://www.youtu.be/mjl4NEMG0JE)
+![Fake Youtube Video](https://www.youtu.be/IamNotAnId)
+![Fake Youtube Video](https://www.youtu.be/这是简体中文字符啊啊啊)
 
 #### Bilibili BV Video
 ![Bilibili Video](https://www.bilibili.com/video/BV19E411j7tC)
-![Bilibili Video with P](https://www.bilibili.com/video/BV1V7411h7cX?p=237)
-
-#### Bilibili iframe
-<iframe src="//player.bilibili.com/player.html?bvid=BV1V7411h7cX&page=237" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-#### Fake Video
-![SomeFakeVideo](http://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_640_3MG.mp5)
-
-
+![Bilibili Video](https://www.bilibili.com/video/BV1V7411h7cX?p=237)
+![Bilibili Video](//www.bilibili.com/video/BV19E411j7tC)
+![Bilibili Video](bilibili.com/video/av170001?p=1)
+![Bilibili Video](https://b23.tv/BV19E411j7tC)
+![Bilibili Video](b23.tv/av170001)
+![Bilibili Video](//b23.tv/av170001?p=1)
+![Fake Bilibili Video](/b23.tv/av170001)
+![Fake Bilibili Video](b23.tv/read/av170001)
+![Fake Bilibili Video](bilibili.com/video/wtf)
+![Fake Bilibili Video](https://www.bilibili.com/video/BVImNotAnId)
+![Fake Bilibili Video](https://www.bilibili.com/video/av1234567890s)

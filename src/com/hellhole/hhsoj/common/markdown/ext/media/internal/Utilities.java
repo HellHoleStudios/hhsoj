@@ -3,6 +3,8 @@ package com.hellhole.hhsoj.common.markdown.ext.media.internal;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import com.hellhole.hhsoj.common.Sanitizer;
+
 final class Utilities {
 
 	private Utilities() {
@@ -71,11 +73,12 @@ final class Utilities {
 					t = s.substring(equalSign + 1);
 				}
 			}
+			if(!Sanitizer.verifyYoutubeId(v))return null;
 			if(t==null) {
 				return "https://www.youtube.com/embed/" + v + "?rel=0";
 			}
 			else {
-				return "https://www.youtube.com/embed/" + v + "start=" + t + "?rel=0";
+				return "https://www.youtube.com/embed/" + v + "?start=" + t + "&rel=0";
 			}
 		}
 		return null;
@@ -104,9 +107,9 @@ final class Utilities {
 		}
 
 		String host = url.getHost();
-		String file = url.getPath();
-		if(file.startsWith("/video/")) {
-			file=file.substring(7);
+		String file = url.getPath().substring(1);
+		if(file.startsWith("video/")) {
+			file=file.substring(6);
 		}
 		if (file.endsWith("/")) {
 			file = file.substring(0, file.length() - 1);
@@ -126,8 +129,10 @@ final class Utilities {
 			}
 			if (file.startsWith("av")) {
 				file = file.substring(2);
+				if(!Sanitizer.verifyBilibiliAId(file))return null;
 				return "https://player.bilibili.com/player.html?aid=" + file + "&page=" + p;
 			} else if (file.startsWith("BV")) {
+				if(!Sanitizer.verifyBilibiliBvId(file))return null;
 				return "https://player.bilibili.com/player.html?bvid=" + file + "&page=" + p;
 			}
 		}
@@ -184,5 +189,4 @@ final class Utilities {
 		int lastSlash = path.lastIndexOf("/");
 		return path.substring(lastSlash + 1, path.length());
 	}
-
 }
