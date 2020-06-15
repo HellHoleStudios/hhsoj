@@ -1,4 +1,5 @@
 <%@page import="com.hellhole.hhsoj.common.StyleUtil"%>
+<%@page import="com.hellhole.hhsoj.common.Sanitizer"%>
 <%@page import="com.hellhole.hhsoj.common.TestResult"%>
 <%@page import="com.hellhole.hhsoj.common.TestsetResult"%>
 <%@page import="java.util.Map.Entry"%>
@@ -42,7 +43,7 @@
 	<jsp:include page="topbar.jsp"></jsp:include>
 	<div class="container">
 		<h1 class="title-left">#<%=id%> </h1>
-		<i style="font-size:20px;"> by <%=StyleUtil.encodeEntity(s.author)%></i>
+		<i style="font-size:20px;"> by <%=Sanitizer.encodeEntity(s.author)%></i>
 		<span class="title-right">
 			Submit Time: <%=new Date(s.submitTime)%><br/>
 			Judger: <%=s.judger%> <br/>
@@ -122,13 +123,13 @@
 												<h3 style="display:inline;"><a data-toggle="collapse" href="#tr<%=e.getKey()+"w"+cnt%>">#<%=cnt%></a></h3>
 												<span style="float:right;"><%=tr.time%>ms / <%=tr.memory%>KB / <%=StyleUtil.styledVerdict(set.getVerdict())%></span>
 												<h5>Input</h5>
-												<pre><%=StyleUtil.encodeEntity(tr.input)%></pre>
+												<pre><%=Sanitizer.encodeEntity(tr.input)%></pre>
 												<h5>Output</h5>
-												<pre><%=StyleUtil.encodeEntity(tr.output)%></pre>
+												<pre><%=Sanitizer.encodeEntity(tr.output)%></pre>
 												<h5>Answer</h5>
-												<pre><%=StyleUtil.encodeEntity(tr.answer)%></pre>
+												<pre><%=Sanitizer.encodeEntity(tr.answer)%></pre>
 												<h5>Checker Information</h5>
-												<pre><%=StyleUtil.encodeEntity(tr.info)%></pre>
+												<pre><%=Sanitizer.encodeEntity(tr.info)%></pre>
 											</div>
 										</div>
 									<%
@@ -145,10 +146,10 @@
 						</div>
 					</div>
 					<div class="tab-pane" id="code" role="tabpanel" aria-labelledby="code-tab">
-						<pre><code class="<%=s.lang%> language-<%=s.lang%>"><%=StyleUtil.encodeEntity(s.code)%></code></pre>
+						<pre><code class="<%=s.lang%> language-<%=s.lang%>"><%=Sanitizer.encodeEntity(s.code)%></code></pre>
 					</div>
 					<div class="tab-pane" id="compiler" role="tabpanel" aria-labelledby="compiler-tab">
-						<pre><%=StyleUtil.encodeEntity(s.compilerInfo)%></pre>
+						<pre><%=Sanitizer.encodeEntity(s.compilerInfo)%></pre>
 					</div>
 				</div>
 			</div>

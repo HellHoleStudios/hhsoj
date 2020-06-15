@@ -1,4 +1,5 @@
 <%@page import="com.hellhole.hhsoj.common.StyleUtil"%>
+<%@page import="com.hellhole.hhsoj.common.Sanitizer"%>
 <%@page import="java.util.Comparator"%>
 <%@page import="java.util.Collections"%>
 <%@page import="java.util.Date"%>
@@ -73,7 +74,7 @@
 				<tr bgcolor="<%=(s.author.equals(session.getAttribute("username"))?"#def":"white")%>">
 					<td><a href="sview.jsp?id=<%=s.id%>"><%=s.id%></a></td>
 					<td><%=new Date(s.submitTime)%></td>
-					<td><%=StyleUtil.encodeEntity(s.author)%></td>
+					<td><%=Sanitizer.encodeEntity(s.author)%></td>
 					<td><a href="pview.jsp?set=<%=s.problemSet%>&id=<%=s.problemId %>"><%=s.problemSet+"."+s.problemId %></a></td>
 					<td align="center"><b style="color:<%=StyleUtil.colorize(s.score) %>;"><%=String.format("%.0f", 100*s.score) %></b></td>
 					<td><%=(s.isFinal?"Final":s.test) %></td>
