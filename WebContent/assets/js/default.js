@@ -1,14 +1,5 @@
 var postload=[];
 
-var converter = new showdown.Converter({
-    'disableForced4SpacesIndentedSublists': true, 
-    'tasklists': true, 
-    'tables': true, 
-    'strikethrough': true,
-    'prefixHeaderId': true,
-    'extensions': ['mathjax', 'video', 'audio', 'catalog', 'anchor', 'youtube', 'bilibili'],
-});
-
 function addTask(a,f){
 	postload.push({p:a,f:f});
 }
