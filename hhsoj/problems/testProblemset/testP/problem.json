@@ -7,7 +7,7 @@
 	"tests":{
 		"easy":{
 			"scheme":"min",
-			"requirement:":[],
+			"requirement":[],
 			"toEnd":true,
 			"score":60
 		},

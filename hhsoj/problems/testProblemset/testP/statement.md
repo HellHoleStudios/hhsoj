@@ -58,6 +58,18 @@ int main(){
 }
 ```
 
+### Sample
+```input
+1 2 3
+2 3 4
+3 4 5
+```
+```output
+YES
+YES
+NO
+```
+
 ### **MathJax**
 
 $ x^2=y^2 $
@@ -98,7 +110,10 @@ $$
 ![FakeReimu](https://upload.thwiki.cc/b/b5/th15_01.mp2)
 
 #### XSS
-<script>alert(1);</script>
+<script>alert('xss');</script>
+<iframe src="javascirpt:alert('xss')"></iframe>
+<img src="badurl" onerror="alert('xss')"/>
+<p onclick="alert('xss')">some text</p>
 
 <!--
 ### Invisible! This is html comment.
