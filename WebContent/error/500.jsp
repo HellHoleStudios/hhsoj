@@ -47,8 +47,8 @@ code, kbd, pre, samp {
 <body>
 	<div class="main">
 		<h1 style="font-size:50px;">500 Internal Server Error</h1>
-		<i>I guess my IQ was </i><span>&#9320;</span><i> when I was coding this :(</i><br/>
-		<i style="padding-left:360px;">---Zzzyt</i><br/>
+		<p><i>I guess my IQ was </i><span>&#9320;</span><i> when I was coding this :(</i></p>
+		<p style="width:100%;max-width:400px;text-align:right;"><i>---Zzzyt</i></p>
 		<br/>
 		<a href="javascript:history.back(0);">Back to where I came from</a><br/>
 		<a href="<%=request.getContextPath().replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")%>/">Back to home</a><br/>

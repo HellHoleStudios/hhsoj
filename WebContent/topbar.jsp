@@ -1,4 +1,4 @@
-<%@page import="com.hellhole.hhsoj.common.StyleUtil"%>
+<%@page import="com.hellhole.hhsoj.common.Sanitizer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -30,7 +30,7 @@
 			} else {
 		%>
 			<%-- TODO: "index.jsp" below should be replaced with user page URL --%>
-			<li class="nav-item topbar-item"><a class="nav-link" href="index.jsp"><%=StyleUtil.encodeEntity((String)session.getAttribute("username"))%></a></li>
+			<li class="nav-item topbar-item"><a class="nav-link" href="index.jsp"><%=Sanitizer.encodeEntity((String)session.getAttribute("username"))%></a></li>
 			<li class="nav-item topbar-item"><a class="nav-link" href="logoutS">Logout</a></li>
 		<%}%>
 		</ul>

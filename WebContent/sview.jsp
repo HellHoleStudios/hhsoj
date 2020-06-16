@@ -20,25 +20,26 @@
 <body>
 	<%
 		String id;
-			Submission s;
-			Problem p;
-			try{
-		id = request.getParameter("id");
-		if (id == null) {
-			response.sendRedirect("status.jsp");
-			return;
-		}
-		
-		s = TomcatHelper.getSubmission(id);
-		p = TomcatHelper.getProblem(s.problemSet, s.problemId);
-		if (s == null || p == null) {
-			response.sendRedirect("status.jsp");
-			return;
-		}
-			}catch(Exception e){
-		out.println("Go to <a href=\"https://en.touhouwiki.net/wiki/Gensokyo\">Gensokyo</a> for fulfilling your desire!");
-		return;
+		Submission s;
+		Problem p;
+		try{
+			id = request.getParameter("id");
+			if (id == null) {
+				response.sendRedirect("status.jsp");
+				return;
 			}
+			
+			s = TomcatHelper.getSubmission(id);
+			p = TomcatHelper.getProblem(s.problemSet, s.problemId);
+			if (s == null || p == null) {
+				response.sendRedirect("status.jsp");
+				return;
+			}
+		}catch(Exception e){
+			response.sendRedirect("error/404.jsp");
+			out.println("Go to <a href=\"https://en.touhouwiki.net/wiki/Gensokyo\">Gensokyo</a> for fulfilling your desire!");
+			return;
+		}
 	%>
 	<jsp:include page="topbar.jsp"></jsp:include>
 	<div class="container">
@@ -70,7 +71,7 @@
 					</li>
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="tab" href="#compiler" role="tab" aria-controls="compiler"
-						aria-selected="false">Compiler Info</a>
+						aria-selected="false">Compiler Output</a>
 					</li>
 				</ul>
 			</div>

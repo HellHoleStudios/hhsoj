@@ -46,8 +46,8 @@ code, kbd, pre, samp {
 <body>
 	<div class="main">
 		<h1 style="font-size:50px;">404 Not Found</h1>
-		<i>Go to <a href="https://en.touhouwiki.net/wiki/Gensokyo" target="_blank">Gensokyo</a> for fulfilling your desire!</i><br/>
-		<i style="padding-left:360px;">---XiaoGeNintendo</i><br/>
+		<p><i>Go to <a href="https://en.touhouwiki.net/wiki/Gensokyo" target="_blank">Gensokyo</a> for fulfilling your desire!</i></p>
+		<p style="width:100%;max-width:400px;text-align:right;"><i>---XiaoGeNintendo</i></p>
 		<br/>
 		<a href="javascript:history.back(0);">Back to where I came from</a><br/>
 		<a href="<%=request.getContextPath().replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")%>/">Back to home</a><br/>

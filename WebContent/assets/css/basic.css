@@ -1,8 +1,5 @@
 /* HHSOJ basic CSS file */
 /* by Zzzyt from Hell Hole Studios*/
-body {
-	min-width: 590px;
-}
 
 hr {
 	margin-top: 10px;
@@ -100,12 +97,6 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	padding: 15px;
 	margin-top: 20px;
 	margin-bottom: 20px;
-}
-
-@media ( max-width :576px ) {
-	.container {
-		width: 540px;
-	}
 }
 
 .title-right {
