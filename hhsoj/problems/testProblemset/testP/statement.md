@@ -59,16 +59,31 @@ int main(){
 ```
 
 ### Sample
-```input
+
+#### Sample #1
+```in
 1 2 3
 2 3 4
 3 4 5
 ```
-```output
+```out
 YES
 YES
 NO
 ```
+
+#### Sample #2
+```in
+print("Don't format me!");
+return 0;
+```
+```out
+function(a){
+	document.write("Don't format me too!");
+}
+```
+
+<pre>test pre</pre>
 
 ### **MathJax**
 
@@ -119,6 +134,7 @@ $$
 ### Invisible! This is html comment.
 -->
 
+<!--
 ### Video
 
 #### Raw Video Link
@@ -152,4 +168,4 @@ $$
 ![Fake Bilibili Video](b23.tv/read/av170001)
 ![Fake Bilibili Video](bilibili.com/video/wtf)
 ![Fake Bilibili Video](https://www.bilibili.com/video/BVImNotAnId)
-![Fake Bilibili Video](https://www.bilibili.com/video/av1234567890s)
+![Fake Bilibili Video](https://www.bilibili.com/video/av1234567890s)-->

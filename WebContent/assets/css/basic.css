@@ -1,6 +1,5 @@
 /* HHSOJ basic CSS file */
 /* by Zzzyt from Hell Hole Studios*/
-
 hr {
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -41,7 +40,6 @@ pre>code {
 .card {
 	display: block;
 }
-
 
 /* Markdown:Anchor style*/
 /* from excing, slightly modified by Zzzyt */
@@ -93,7 +91,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 }
 
 .container {
-	border-radius:10px;
+	border-radius: 10px;
 	padding: 15px;
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -150,8 +148,8 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 }
 
 @media ( min-width : 768px ) {
-	.topbar-nav{
-		height:50px;
+	.topbar-nav {
+		height: 50px;
 	}
 }
 
@@ -166,7 +164,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 }
 
 .topbar {
-	padding:0px;
+	padding: 0px;
 }
 
 .topbar-nav {
@@ -273,6 +271,28 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 @media ( min-width : 768px ) {
 	.copy-btn-wrapper {
 		display: block ! important;
+	}
+	.sample-in {
+		width: 48%;
+		float: left;
+	}
+	.sample-out {
+		width: 48%;
+		float: right;
+	}
+	.sample-in-wrapper {
+		width: 48%;
+		float: left;
+	}
+	.sample-in-wrapper .copy-btn {
+		top: 8px;
+	}
+	.sample-out-wrapper {
+		width: 48%;
+		float: right;
+	}
+	.sample-out-wrapper .copy-btn {
+		top: 8px;
 	}
 }
 

@@ -52,7 +52,9 @@ function reloadCopyButton(){
 
 function reloadHighlight(){
 	document.querySelectorAll('pre code').forEach((block) => {
-		hljs.highlightBlock(block);
+		if(!block.className.includes('language-in')&&!block.className.includes('language-out')){
+			hljs.highlightBlock(block);
+		}
 	});
 }
 
@@ -64,13 +66,27 @@ function reloadTableStyle(){
 	});
 }
 
+function reloadIOStyle(){
+	a=$('code.language-in').parent();
+	a.addClass('sample-in');
+	a.prev().addClass('sample-in-wrapper');
+	
+	b=$('code.language-out').parent();
+	b.addClass('sample-out');
+	b.prev().addClass('sample-out-wrapper');
+	
+	a.prev().before('<h6 style="width:48%;float:right;">Input</h6><h6 style="width:48%;float:left;">Output</h6>');
+	b.after('<div style="clear:both;margin-bottom:8px;"></div>');
+}
+
 function reloadMathJax(){
 	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 }
 
 addTask(10,reloadHighlight);
 addTask(20,reloadTableStyle);
-addTask(1000,reloadCopyButton);
+addTask(100,reloadCopyButton);
+addTask(1000,reloadIOStyle);
 addTask(10000,reloadMathJax);
 
 document.addEventListener('DOMContentLoaded', (event) => {
