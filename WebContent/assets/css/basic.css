@@ -315,3 +315,55 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	border-top-right-radius: 3px;
 	border-bottom-left-radius: 3px;
 }
+
+.status-card {
+	background: #fff;
+	margin: 8px 0px;
+	padding: 5px;
+	display: flex;
+	flex-direction: column;
+}
+
+.status-card-col {
+	display: flex;
+	flex-direction: row;
+	margin: 4px 0px;
+}
+
+.status-card-col *:nth-last-child(2) {
+	max-height: 30px;
+	flex-grow: 1;
+}
+
+@media ( min-width : 576px) {
+	.status-card-col {
+		float: left;
+		flex-direction: column;
+		justify-content: center;
+		margin: 0px;
+	}
+	
+	.status-card {
+		flex-direction: row;
+	}
+}
+
+.status-card-id {
+	font-size: 15px;
+}
+
+.status-card-author {
+	font-size: 15px;
+	margin-bottom: 0px;
+	word-break: break-all;
+}
+
+.status-card-time {
+	margin-bottom: 0px;
+}
+
+@media ( min-width : 576px) {
+	.pagenav {
+		float: right;
+	}
+}

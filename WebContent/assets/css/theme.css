@@ -24,6 +24,11 @@ p, h1, h2, h3, h4, h5, h6 {
 	font-family: 'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Noto Sans CJK JP', 'Noto Sans SC', 'Noto Sans', 'Roboto', sans-serif;
 }
 
+.nostyle, .nostyle:hover, .nostyle:visited, .nostyle:active {
+	color: inherit;
+	text-decoration: none;
+}
+
 .title-left {
 	font-weight: bold;
 }
@@ -163,4 +168,10 @@ code:empty, kdb:empty, pre:empty, samp:empty {
 
 .colored-header span {
 	color: #ffffff;
+}
+
+.status-card .badge {
+	font-size: 15px;
+	font-weight: bold;
+	color: #fff;
 }

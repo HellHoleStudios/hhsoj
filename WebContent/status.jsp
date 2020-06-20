@@ -55,40 +55,35 @@
 		    <li class="page-item"><a class="page-link" href="?page=<%=pageId+10%>&renSize=<%=renSize%>">10&gt;&gt;</a></li>
 		</ul>
   		<hr/>
-		<table class="table table-bordered table-sm status-table">
-			<tr>
-				<th>#</th>
-				<th>Time</th>
-				<th>Author</th>
-				<th>Problem</th>
-				<th>Score</th>
-				<th>Tests</th>
-				<th>Lang</th>
-				<th>Time</th>
-				<th>Memory</th>
-			</tr>
-			<%
-				for(int i=(pageId-1)*renSize;i<Math.min(arr.size(),pageId*renSize);i++){
-						Submission s=arr.get(i);
-			%>
-				<tr bgcolor="<%=(s.author.equals(session.getAttribute("username"))?"#def":"white")%>">
-					<td><a href="sview.jsp?id=<%=s.id%>"><%=s.id%></a></td>
-					<td><%=new Date(s.submitTime)%></td>
-					<td><%=Sanitizer.encodeEntity(s.author)%></td>
-					<td><a href="pview.jsp?set=<%=s.problemSet%>&id=<%=s.problemId %>"><%=s.problemSet+"."+s.problemId %></a></td>
-					<td align="center"><b style="color:<%=StyleUtil.colorize(s.score) %>;"><%=String.format("%.0f", 100*s.score) %></b></td>
-					<td><%=(s.isFinal?"Final":s.test) %></td>
-					<td><%=s.lang %></td>
-					<td><%=s.getRunTime() %></td>
-					<td><%=s.getRunMem() %></td>
-				</tr>
-			<%
-				}
-			%>
-		
-		</table>
+		<%
+			for(int i=(pageId-1)*renSize;i<Math.min(arr.size(),pageId*renSize);i++){
+					Submission s=arr.get(i);
+		%>
+			<div class="status-card row card">
+		  		<div class="status-card-col col-sm-3">
+		  			<a class="status-card-id" href="sview.jsp?id=<%=s.id%>">#<%=s.id%></a>
+		  			<p class="status-card-author"><b><%=Sanitizer.encodeEntity(s.author)%></b></p>
+		  		</div>
+	  			<div class="status-card-col col-sm-2">
+	  				<a href="sview.jsp?id=<%=s.id%>">
+		  				<span class="badge" style="background:<%=StyleUtil.colorize(s.score) %>;">
+		  					<%=(s.isFinal?"Final":s.test)%>&nbsp;&nbsp;<%=String.format("%.0f", 100*s.score) %>
+		  				</span>
+	  				</a>
+	  			</div>
+	  			<div class="status-card-col col-sm-3">
+	  				<a href="pview.jsp?set=<%=s.problemSet%>&id=<%=s.problemId %>"><%=s.problemSet+"."+s.problemId %></a>
+	  			</div>
+	  			<div class="status-card-col col-sm-4">
+	  				<span><%=s.lang %> <%=s.getRunTime() %>ms <%=s.getRunMem() %>KB</span>
+	  				<p class="status-card-time"><%=new Date(s.submitTime)%></p>
+	  			</div>
+	  		</div>
+		<%
+			}
+		%>
 		<hr/>
-		<ul class="pagination pagination-sm" style="float:right;">
+		<ul class="pagination pagination-sm pagenav">
 		    <li class="page-item"><a class="page-link" href="?page=<%=pageId-10%>&renSize=<%=renSize%>">&lt;&lt;10</a></li>
 		    <li class="page-item"><a class="page-link" href="?page=<%=pageId-1%>&renSize=<%=renSize%>">&lt;</a></li>
 		    <li class="page-item"><a class="page-link" href="?page=<%=pageId+1%>&renSize=<%=renSize%>">&gt;</a></li>
@@ -96,12 +91,10 @@
 		</ul>
 		<ul class="pagination pagination-sm">
 			<li class="page-item disabled"><a class="page-link" href="#">Submission Per Page:</a></li>
-			<li class="page-item"><a class="page-link" href="?page=<%=pageId%>&renSize=<%=1%>">1?</a></li>
-		    <li class="page-item"><a class="page-link" href="?page=<%=pageId%>&renSize=<%=10%>">10</a></li>
+			<li class="page-item"><a class="page-link" href="?page=<%=pageId%>&renSize=<%=1%>">1</a></li>
 		    <li class="page-item"><a class="page-link" href="?page=<%=pageId%>&renSize=<%=20%>">20</a></li>
-		    <li class="page-item"><a class="page-link" href="?page=<%=pageId%>&renSize=<%=50%>">50</a></li>
 		    <li class="page-item"><a class="page-link" href="?page=<%=pageId%>&renSize=<%=100%>">100</a></li>
-		    <li class="page-item"><a class="page-link" href="?page=<%=pageId%>&renSize=<%=998244353%>">998244353!</a></li>
+		    <li class="page-item"><a class="page-link" href="?page=<%=pageId%>&renSize=<%=998244353%>">INF</a></li>
 		</ul>
 	</div>
 </body>
