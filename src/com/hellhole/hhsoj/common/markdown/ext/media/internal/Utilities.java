@@ -10,7 +10,7 @@ final class Utilities {
 	private Utilities() {
 	}
 
-	static String resolveYoutubeSrc(String urlStr) {
+	public static String resolveYoutubeSrc(String urlStr) {
 		URL url = null;
 		try {
 			url = new URL(urlStr);
@@ -33,7 +33,7 @@ final class Utilities {
 		}
 
 		String host = url.getHost();
-		if (!url.getPath().equals("/watch")&&host.equals("youtu.be")) {
+		if (!"/watch".equals(url.getPath())&&"youtu.be".equals(host)) {
 			String v = url.getPath().substring(1);
 			String t = null;
 			if (url.getQuery() != null) {
@@ -43,7 +43,7 @@ final class Utilities {
 					if (equalSign == -1)
 						continue;
 					String key = s.substring(0, equalSign);
-					if (key.equals("t")) {
+					if ("t".equals(key)) {
 						t = s.substring(equalSign + 1);
 					}
 				}
@@ -55,8 +55,8 @@ final class Utilities {
 			else {
 				return "https://www.youtube.com/embed/" + v + "start=" + t + "?rel=0";
 			}
-		} else if (url.getPath().equals("/watch")
-				&& (host.equals("www.youtube.com") || host.equals("youtube.com") || host.equals("youtu.be"))) {
+		} else if ("/watch".equals(url.getPath())
+				&& ("www.youtube.com".equals(host) || "youtube.com".equals(host) || "youtu.be".equals(host))) {
 			if (url.getQuery() == null)
 				return null;
 			String[] query = url.getQuery().split("&");
@@ -67,9 +67,9 @@ final class Utilities {
 				if (equalSign == -1)
 					continue;
 				String key = s.substring(0, equalSign);
-				if (key.equals("v")) {
+				if ("v".equals(key)) {
 					v = s.substring(equalSign + 1);
-				} else if (key.equals("t")) {
+				} else if ("t".equals(key)) {
 					t = s.substring(equalSign + 1);
 				}
 			}
@@ -84,7 +84,7 @@ final class Utilities {
 		return null;
 	}
 
-	static String resolveBilibiliSrc(String urlStr) {
+	public static String resolveBilibiliSrc(String urlStr) {
 		URL url = null;
 		try {
 			url = new URL(urlStr);
@@ -114,7 +114,7 @@ final class Utilities {
 		if (file.endsWith("/")) {
 			file = file.substring(0, file.length() - 1);
 		}
-		if (host.equals("www.bilibili.com") || host.equals("bilibili.com") || host.equals("b23.tv")) {
+		if ("www.bilibili.com".equals(host) || "bilibili.com".equals(host) || "b23.tv".equals(host)) {
 			String p = "1";
 			if (url.getQuery() != null) {
 				String[] query = url.getQuery().split("&");
@@ -122,7 +122,7 @@ final class Utilities {
 					int equalSign = s.indexOf("=");
 					if (equalSign == -1)
 						continue;
-					if (s.substring(0, equalSign).equals("p")) {
+					if ("p".equals(s.substring(0, equalSign))) {
 						p = s.substring(equalSign + 1);
 					}
 				}
@@ -139,7 +139,7 @@ final class Utilities {
 		return null;
 	}
 
-	static String resolveAudioType(String source) {
+	public static String resolveAudioType(String source) {
 		int period = source.lastIndexOf(".");
 		if (period == -1)
 			return null;
@@ -165,7 +165,7 @@ final class Utilities {
 		}
 	}
 
-	static String resolveVideoType(String source) {
+	public static String resolveVideoType(String source) {
 		int period = source.lastIndexOf(".");
 		if (period == -1)
 			return null;
@@ -185,7 +185,7 @@ final class Utilities {
 		}
 	}
 
-	static String getFilename(String path) {
+	public static String getFilename(String path) {
 		int lastSlash = path.lastIndexOf("/");
 		return path.substring(lastSlash + 1, path.length());
 	}

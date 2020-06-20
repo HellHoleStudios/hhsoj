@@ -58,7 +58,7 @@ body {
 }
 
 table {
-	background: #ffffff;
+	background: #fff;
 }
 
 table>tbody>tr>th {
@@ -75,7 +75,7 @@ code, kbd, pre, samp {
 }
 
 code:empty, kdb:empty, pre:empty, samp:empty {
-	border-radius: 0px;
+	border-radius: 0;
 	visibility: hidden;
 }
 
@@ -85,33 +85,33 @@ code:empty, kdb:empty, pre:empty, samp:empty {
 }
 
 .title-right p, .title-right span, .title-right i, .title-right b {
-	color: #777777;
+	color: #777;
 }
 
 .topbar-item:hover {
-	background: #777777;
+	background: #777;
 }
 
 .navbar-brand:hover {
-	background: #777777;
+	background: #777;
 }
 
 .vcard-verdict {
 	font-weight: bold;
-	color: #ffff;
+	color: #fff;
 }
 
 .vcard-score {
 	font-weight: bold;
-	color: #ffffff;
+	color: #fff;
 }
 
 .vcard-tm {
-	color: #ffffff;
+	color: #fff;
 }
 
 .vcard-test {
-	color: #ffffff;
+	color: #fff;
 }
 
 .vcard:hover {
@@ -119,7 +119,7 @@ code:empty, kdb:empty, pre:empty, samp:empty {
 }
 
 .vcard {
-	background: #aaaaaa;
+	background: #aaa;
 	transition: 0.3s;
 	font-family: 'Consolas', 'DejaVu Sans Mono', 'Ubuntu Mono', 'Lucida Console', monospace;
 }
@@ -129,45 +129,45 @@ code:empty, kdb:empty, pre:empty, samp:empty {
 }
 
 .vcard-ac {
-	background: #00cc00;
+	background: #0c0;
 }
 
 .vcard-wa {
-	background: #0000dd;
+	background: #00d;
 }
 
 .vcard-tle {
-	background: #ff8800;
+	background: #f80;
 }
 
 .vcard-mle {
-	background: #aa00aa;
+	background: #a0a;
 }
 
 .vcard-re {
-	background: #dd0000;
+	background: #d00;
 }
 
 .vcard-rf {
-	background: #ccbb00;
+	background: #cb0;
 }
 
 .vcard-pt {
-	background: #66ccff;
+	background: #6cf;
 }
 
 .copy-btn {
-	color: #999999;
+	color: #999;
 	background-color: transparent;
 }
 
 .copy-btn:hover {
-	color: #ffffff;
-	background-color: #666666;
+	color: #fff;
+	background-color: #666;
 }
 
 .colored-header span {
-	color: #ffffff;
+	color: #fff;
 }
 
 .status-card .badge {

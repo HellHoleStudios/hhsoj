@@ -18,15 +18,13 @@ import com.hellhole.hhsoj.common.Submission;
  *
  */
 public class ServerManager {
-
+	private String ip;
+	private int port;
+	
 	public static void main(String[] args) throws Exception {
 		ServerManager m=new ServerManager();
 		m.solve(args);
 	}
-
-	
-	String ip;
-	int port;
 	
 	public Vector<Judger> judgers=new Vector<>();
 	
@@ -100,7 +98,7 @@ public class ServerManager {
 			Gson gs=new Gson();
 			String js=gs.toJson(sub);
 			
-			if(new File("submission").exists()==false){
+			if(!(new File("submission")).exists()){
 				new File("submission").mkdirs();
 			}
 			

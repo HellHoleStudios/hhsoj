@@ -8,34 +8,32 @@ import org.owasp.html.PolicyFactory;
 import org.owasp.html.Sanitizers;
 
 public class Sanitizer {
-	static PolicyFactory markdown;
+	private static final PolicyFactory markdown = 
+		new HtmlPolicyBuilder()
+			.allowStandardUrlProtocols()
+			.allowElements("hr", "dd", "dl", "dt", "kbd", "abbr", "pre", "audio", "video", "source")
+			.allowAttributes("align", "alink", "alt", "bgcolor", "border", "cellpadding", "cellspacing",
+					"class", "color", "cols", "colspan", "coords", "dir", "face", "height", "hspace", "ismap",
+					"lang", "marginheight", "marginwidth", "multiple", "nohref", "noresize", "noshade",
+					"nowrap", "ref", "rel", "rev", "rows", "rowspan", "scrolling", "shape", "span", "summary",
+					"tabindex", "title", "usemap", "valign", "value", "vlink", "vspace", "width")
+			.globally()
+			.allowElements("iframe")
+			.allowAttributes("src")
+			.matching((String elementName, String attributeName, String value) -> {
+				if(validVideoSource(value))return value;
+				return null;
+            }).onElements("iframe")
+			.allowAttributes("allow", "frameborder", "framespacing", "allowfullscreen").onElements("iframe")
+			.toFactory()
+			.and(Sanitizers.BLOCKS)
+			.and(Sanitizers.FORMATTING)
+			.and(Sanitizers.IMAGES)
+			.and(Sanitizers.LINKS)
+			.and(Sanitizers.STYLES)
+			.and(Sanitizers.TABLES);;
 
 	public static String sanitizeMarkdown(String html) {
-		if (markdown == null) {
-			markdown = new HtmlPolicyBuilder()
-					.allowStandardUrlProtocols()
-					.allowElements("hr", "dd", "dl", "dt", "kbd", "abbr", "pre", "audio", "video", "source")
-					.allowAttributes("align", "alink", "alt", "bgcolor", "border", "cellpadding", "cellspacing",
-							"class", "color", "cols", "colspan", "coords", "dir", "face", "height", "hspace", "ismap",
-							"lang", "marginheight", "marginwidth", "multiple", "nohref", "noresize", "noshade",
-							"nowrap", "ref", "rel", "rev", "rows", "rowspan", "scrolling", "shape", "span", "summary",
-							"tabindex", "title", "usemap", "valign", "value", "vlink", "vspace", "width")
-					.globally()
-					.allowElements("iframe")
-					.allowAttributes("src")
-					.matching((String elementName, String attributeName, String value) -> {
-						if(validVideoSource(value))return value;
-						return null;
-		            }).onElements("iframe")
-					.allowAttributes("allow", "frameborder", "framespacing", "allowfullscreen").onElements("iframe")
-					.toFactory()
-					.and(Sanitizers.BLOCKS)
-					.and(Sanitizers.FORMATTING)
-					.and(Sanitizers.IMAGES)
-					.and(Sanitizers.LINKS)
-					.and(Sanitizers.STYLES)
-					.and(Sanitizers.TABLES);
-		}
 		return markdown.sanitize(html);
 	}
 
@@ -62,7 +60,7 @@ public class Sanitizer {
 		}
 		String host=url.getHost();
 		if(host.equals("player.bilibili.com")) {
-			if(!url.getPath().equals("/player.html")) {
+			if(!"/player.html".equals(url.getPath())) {
 				return false;
 			}
 			String[] query=url.getQuery().split("&");

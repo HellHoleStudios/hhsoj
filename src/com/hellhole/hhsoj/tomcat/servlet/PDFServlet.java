@@ -19,14 +19,6 @@ import com.hellhole.hhsoj.tomcat.util.TomcatHelper;
 @WebServlet("/requirePDF")
 public class PDFServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public PDFServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -50,7 +42,7 @@ public class PDFServlet extends HttpServlet {
 		
 		File f1=new File(path+"/statement.pdf");
 		
-		if(f1.exists()==false){
+		if(!f1.exists()){
 			response.setStatus(403);
 			return;
 		}

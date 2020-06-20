@@ -24,21 +24,21 @@ function reloadCopyButton(){
 	
 	var a=$('pre');
 	var cnt=0;
-	for(var i=0;i<a.length;i++){
-		if(a[i].textContent=='')continue;
-		if(a[i].id==''){
-			while($('#copycode'+cnt).length!=0){
+	for(var pre of a){
+		if(pre.textContent==='')continue;
+		if(pre.id===''){
+			while($('#copycode'+cnt).length!==0){
 				cnt++;
 			}
-			a[i].id="copycode"+cnt;
+			pre.id='copycode'+cnt;
 		}
 	}
-	for(var i=0;i<a.length;i++){
-		if(a[i].textContent=='')continue;
+	for(var pre of a){
+		if(pre.textContent==='')continue;
 		var str='<div class="copy-btn-wrapper">'
-		str+='<button type="button" class="copy-btn" data-clipboard-target="#'+a[i].id+'">Copy</button>';
+		str+='<button type="button" class="copy-btn" data-clipboard-target="#'+pre.id+'">Copy</button>';
 		str+='</div>'
-		$(a[i]).before(str);
+		$(pre).before(str);
 	}
 	
 	var clipboard=new ClipboardJS('.copy-btn');
@@ -46,7 +46,7 @@ function reloadCopyButton(){
 	    e.clearSelection();
 	});
 	clipboard.on('error', function(e) {
-	    alert("Copy failed :(");
+	    alert('Copy failed :(');
 	});
 }
 
@@ -59,19 +59,15 @@ function reloadHighlight(){
 }
 
 function reloadTableStyle(){
-	document.querySelectorAll('table').forEach((table) => {
-		if(table.className.indexOf('table-bordered'==-1)){
-			table.className+=' table-bordered table-sm';
-		}
-	});
+	$('table').addClass(['table-bordered','table-sm']);
 }
 
 function reloadIOStyle(){
-	a=$('code.language-in').parent();
+	var a=$('code.language-in').parent();
 	a.addClass('sample-in');
 	a.prev().addClass('sample-in-wrapper');
 	
-	b=$('code.language-out').parent();
+	var b=$('code.language-out').parent();
 	b.addClass('sample-out');
 	b.prev().addClass('sample-out-wrapper');
 	
@@ -83,7 +79,7 @@ function reloadIOStyle(){
 }
 
 function reloadMathJax(){
-	MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+	MathJax.Hub.Queue(['Typeset',MathJax.Hub]);
 }
 
 addTask(10,reloadHighlight);

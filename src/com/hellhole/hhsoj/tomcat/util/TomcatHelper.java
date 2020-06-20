@@ -108,7 +108,7 @@ public class TomcatHelper {
 		
 		ArrayList<Problem> arr=new ArrayList<>();
 		File s=new File(config.path+"/problems/"+set);
-		if(s.exists()==false){
+		if(!s.exists()){
 			return arr;
 		}
 		

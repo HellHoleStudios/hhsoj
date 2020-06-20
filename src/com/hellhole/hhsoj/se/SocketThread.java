@@ -9,15 +9,15 @@ import com.hellhole.hhsoj.common.FileUtil;
 import com.hellhole.hhsoj.common.Submission;
 
 public class SocketThread extends Thread {
-	Socket sock;
-	ServerManager boss;
+	private Socket sock;
+	private ServerManager boss;
+	private DataInputStream dis;
+	private DataOutputStream dos;
+	
 	public SocketThread(Socket s,ServerManager boss){
 		this.sock=s;
 		this.boss=boss;
 	}
-	
-	DataInputStream dis;
-	DataOutputStream dos;
 	
 	public void judgerRegister() throws Exception{
 		String name=dis.readUTF();
@@ -40,11 +40,11 @@ public class SocketThread extends Thread {
 			
 			String op=dis.readUTF();
 			
-			if(op.equals("judger")){
+			if("judger".equals(op)){
 				judgerRegister();
 				
 				dos.writeUTF(FileUtil.readFile("config/lang.json"));
-			}else if(op.equals("submit")){
+			}else if("submit".equals(op)){
 				addSubmission();
 			}else{
 				System.out.println("Unknown command");

@@ -21,34 +21,31 @@ import com.hellhole.hhsoj.common.TestResult;
 import com.hellhole.hhsoj.common.TestsetResult;
 
 public class JudgeServer {
-
+	private String ip;
+	int port;
+	private String name;
+	
+	private DataInputStream dis;
+	private DataOutputStream dos;
+	
+	private HashMap<String,Language> langs=new HashMap<>();
+	
+	private String callPy;
+	
+	private static final Gson gs=new Gson();
+	
+	private static final int READ_LIMIT=1024;
+	
 	public static void main(String[] args) {
 		JudgeServer js=new JudgeServer();
 		js.solve(args);
 	}
 	
-	String ip;
-	int port;
-	String name;
-	
-	DataInputStream dis;
-	DataOutputStream dos;
-	
-	HashMap<String,Language> langs=new HashMap<>();
-	
-	String callPy;
-	
-	Gson gs=new Gson();
-	
-	final int READ_LIMIT=1024;
-	
-	
-	
 	public void downloadData(String set,String id){
 		
 	}
 	
-	void remove(File data){
+	private void remove(File data){
 		if(data.isDirectory()){
 			for(File x:data.listFiles()){
 				remove(x);
@@ -58,7 +55,7 @@ public class JudgeServer {
 		}
 	}
 	
-	void downloadData(File data,String path) throws Exception{
+	private void downloadData(File data,String path) throws Exception{
 		//first remove everything
 		System.out.println("Removing...");
 		remove(data);
@@ -71,7 +68,7 @@ public class JudgeServer {
 			
 			String name=dis.readUTF();
 			
-			if(name.equals("$$END")){
+			if("$$END".equals(name)){
 				break;
 			}
 			if(name.startsWith("!")){
@@ -112,7 +109,7 @@ public class JudgeServer {
 	 * @return
 	 * @throws Exception 
 	 */
-	boolean runSingleTest(Submission sub,int id,File set,Problem pr) {
+	private boolean runSingleTest(Submission sub,int id,File set,Problem pr) {
 
 		String sn=set.getName();
 		
@@ -175,23 +172,23 @@ public class JudgeServer {
 				System.out.println("[WARNING] A program is closed too late! Is the time limit too big, or the sandbox crashed?");
 			}
 			
-			if(arg[0].equals("RE")){
+			if("RE".equals(arg[0])){
 				sub.addResult(sn,new TestResult("Runtime Error", arg[1],arg[2], "Exit code is "+arg[3], inp, "", "",0));
 				return false;
 			}
-			if(arg[0].equals("RF")){
+			if("RF".equals(arg[0])){
 				sub.addResult(sn,new TestResult("Restrict Function", arg[1],arg[2], arg[3], inp, "", "",0));
 				return false;
 			}
-			if(arg[0].equals("TLE")){
+			if("TLE".equals(arg[0])){
 				sub.addResult(sn,new TestResult("Time Limit Exceeded", arg[1],arg[2], "", inp, "", "",0));
 				return false;
 			}
-			if(arg[0].equals("MLE")){
+			if("MLE".equals(arg[0])){
 				sub.addResult(sn,new TestResult("Memory Limit Exceeded", arg[1],arg[2], "", inp, "", "",0));
 				return false;
 			}
-			if(arg[0].equals("UKE")){
+			if("UKE".equals(arg[0])){
 				sub.addResult(sn,new TestResult("Judgement Failed", arg[1], arg[2], "Please send an issue with this information:"+arg[3], "", "", "",0));
 				return false;
 			}
@@ -247,7 +244,7 @@ public class JudgeServer {
 		}
 	}
 	
-	void runTestset(Submission sub,File set,Problem p) throws Exception{
+	private void runTestset(Submission sub,File set,Problem p) throws Exception{
 		System.out.println("Running on testset:"+set.getName());
 		
 		sub.res.put(set.getName(),new TestsetResult());
@@ -271,7 +268,7 @@ public class JudgeServer {
 		
 		for(int id=0;;id++){
 			File in=new File(set.getAbsoluteFile()+"/test"+id+".in");
-			if(in.exists()==false){
+			if(!in.exists()){
 				break;
 			}
 			
@@ -280,7 +277,7 @@ public class JudgeServer {
 			sub.score=sub.calcScore(p);
 			
 			rollbackInfo(sub);
-			if(b==false){
+			if(!b){
 				allClear=false;
 				if(!p.tests.get(set.getName()).toEnd){
 					break;
@@ -291,7 +288,7 @@ public class JudgeServer {
 		sub.res.get(set.getName()).pass=allClear;
 	}
 	
-	void testFull(Submission sub,File data) throws Exception{
+	private void testFull(Submission sub,File data) throws Exception{
 		//clean folder
 		File temp=new File("judge");
 		remove(temp);
@@ -380,18 +377,18 @@ public class JudgeServer {
 		}
 	}
 	
-	Language getLang(String lang) {
+	private Language getLang(String lang) {
 		return langs.get(lang);
 	}
 
-	void testSubmission(Submission sub) throws Exception{
+	private void testSubmission(Submission sub) throws Exception{
 		
 		//try to fetch data now
 		
 		String path="data/"+sub.problemSet+"_"+sub.problemId;
 		
 		File data=new File(path);
-		if(data.exists()==false){
+		if(!data.exists()){
 			//no data!!
 			dos.writeInt(-1);
 		}else{
@@ -405,7 +402,7 @@ public class JudgeServer {
 		}
 		
 		String isOk=dis.readUTF();
-		if(isOk.equals("Update")){
+		if("Update".equals(isOk)){
 			//read everything
 			downloadData(data,path);
 		}

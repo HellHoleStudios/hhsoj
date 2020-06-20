@@ -15,7 +15,7 @@ import com.google.gson.reflect.TypeToken;
 
 public class FileUtil {
 	
-	static Gson gs=new Gson();
+	private static final Gson gs=new Gson();
 	public static final int BLOCK_SIZE=1024*1024;
 	
 	public static String readFile(String path){

@@ -20,7 +20,7 @@ public class TestsetResult {
 			return "Skipped";
 		}else{
 			for(TestResult tr:res){
-				if(!tr.verdict.equals("Accepted")){
+				if(!"Accepted".equals(tr.verdict)){
 					return tr.verdict;
 				}
 			}
@@ -33,7 +33,7 @@ public class TestsetResult {
 			return 0;
 		}
 		
-		if(scheme.equalsIgnoreCase("min")){
+		if("min".equalsIgnoreCase(scheme)){
 			float ans=1e9f;
 			for(TestResult tr:res){
 				ans=Math.min(ans, tr.score);
@@ -42,7 +42,7 @@ public class TestsetResult {
 			return ans;
 		}
 		
-		if(scheme.equalsIgnoreCase("max")){
+		if("max".equalsIgnoreCase(scheme)){
 			float ans=-1e9f;
 			for(TestResult tr:res){
 				ans=Math.max(ans, tr.score);
@@ -51,7 +51,7 @@ public class TestsetResult {
 			return ans;
 		}
 		
-		if(scheme.equalsIgnoreCase("sum")){
+		if("sum".equalsIgnoreCase(scheme)){
 			float ans=0;
 			for(TestResult tr:res){
 				ans+=tr.score;
@@ -60,7 +60,7 @@ public class TestsetResult {
 			return ans;
 		}
 		
-		if(scheme.equalsIgnoreCase("avg")){
+		if("avg".equalsIgnoreCase(scheme)){
 			float ans=0;
 			for(TestResult tr:res){
 				ans+=tr.score;
@@ -75,7 +75,7 @@ public class TestsetResult {
 	public float getPassed() {
 		int cnt=0;
 		for(TestResult i:res) {
-			if(i.verdict.equals("Accepted")||i.verdict.equals("Point")) {
+			if("Accepted".equals(i.verdict)||"Point".equals(i.verdict)) {
 				cnt++;
 			}
 		}

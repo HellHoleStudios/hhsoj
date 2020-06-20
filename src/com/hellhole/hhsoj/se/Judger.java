@@ -54,7 +54,7 @@ public class Judger {
 		try{
 			dos.writeUTF("Hi?");
 			String res=dis.readUTF();
-			return res.equals("Hi!");
+			return "Hi!".equals(res);
 		}catch(Exception e){
 			System.out.println("Unsuccessful handshake:"+e);
 			return false;

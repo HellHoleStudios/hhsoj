@@ -1,5 +1,7 @@
+
 /* HHSOJ basic CSS file */
-/* by Zzzyt from Hell Hole Studios*/
+/* by Zzzyt from Hell Hole Studios */
+
 hr {
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -32,17 +34,26 @@ pre {
 	margin-bottom: 8px;
 }
 
-pre>code {
-	padding: 0em !important;
+pre > code {
+	padding: 0 !important;
 }
 
 /* Sorry Bootstrap, but flexs are just too hard to handle */
+
 .card {
 	display: block;
 }
 
-/* Markdown:Anchor style*/
+/* Markdown:Anchor style */
 /* from excing, slightly modified by Zzzyt */
+
+.octicon {
+	display: inline-block;
+	fill: currentColor;
+	vertical-align: middle;
+	visibility: hidden;
+}
+
 h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	h5:hover .octicon, h6:hover .octicon {
 	visibility: visible;
@@ -58,34 +69,29 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	visibility: visible;
 }
 
-.octicon {
-	display: inline-block;
-	fill: currentColor;
-	vertical-align: middle;
-	visibility: hidden;
-}
 
 /* Markdown:Catalog style */
 /* from excing, slightly modified by Zzzyt */
+
 .cat ul {
-	-webkit-margin-before: 0em;
-	-webkit-margin-after: 0em;
-	-webkit-margin-start: 0px;
-	-webkit-margin-end: 0px;
-	-webkit-padding-start: 0px;
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+	-webkit-margin-start: 0;
+	-webkit-margin-end: 0;
+	-webkit-padding-start: 0;
 }
 
-.cat ul ul {
-	-webkit-margin-before: 0em;
-	-webkit-margin-after: 0em;
-	-webkit-margin-start: 0px;
-	-webkit-margin-end: 0px;
+.cat ul {
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+	-webkit-margin-start: 0;
+	-webkit-margin-end: 0;
 	-webkit-padding-start: 40px;
 }
 
-.cat li, li {
-	padding-top: 0em;
-	padding-bottom: 0em;
+.cat li {
+	padding-top: 0;
+	padding-bottom: 0;
 	margin-top: 0;
 	margin-bottom: 0;
 }
@@ -110,21 +116,14 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 }
 
 .title {
-	margin-left: 20px;
-	margin-right: 20px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin: 10px 20px;
 	float: left;
 }
 
 .subtitle {
-	margin-left: 20px;
-	margin-right: 20px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin: 10px 20px;
 	float: left;
 	clear: both;
-	margin-bottom: 10px;
 }
 
 .topbar-item a {
@@ -139,37 +138,34 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 }
 
 .navbar-brand {
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-left: 5px;
-	padding-right: 5px;
+	padding: 5px;
 	transition: 0.2s;
-	margin: 0px;
+	margin: 0;
 }
 
-@media ( min-width : 768px ) {
+@media (min-width:768px) {
 	.topbar-nav {
 		height: 50px;
 	}
 }
 
 .ml-auto {
-	margin-left: 0px !important;
+	margin-left: 0 !important;
 }
 
 .mr-auto {
-	margin-right: 0px !important;
+	margin-right: 0 !important;
 	float: right !important;
 	margin-left: auto !important;
 }
 
 .topbar {
-	padding: 0px;
+	padding: 0;
 }
 
 .topbar-nav {
-	padding-top: 0px;
-	padding-bottom: 0px;
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 .card-collapse {
@@ -182,18 +178,18 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 
 .status-table {
 	align-self: center;
-	margin: 0px auto;
+	margin: 0 auto;
 	min-width: 500px;
 }
 
 .center-form {
-	margin: 0px auto;
+	margin: 0 auto;
 	margin-top: 50px;
 	width: 300px;
 }
 
 .vcard-collapse {
-	padding: 0px 20px;
+	padding: 0 20px;
 }
 
 .vcard {
@@ -205,29 +201,31 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	border-radius: .25rem;
+	border-radius: 0.25rem;
 	cursor: pointer;
 }
 
 .vcard-detail {
 	margin: 3px;
 	clear: both;
-	border-radius: .25rem;
+	border-radius: 0.25rem;
 }
 
-@media ( min-width :768px ) {
+@media (min-width:768px) {
 	.vcard {
 		margin: 10px;
 	}
+	
 	.vcard-detail {
 		margin: 10px;
 	}
 }
 
-@media ( min-width :1200px ) {
+@media (min-width:1200px) {
 	.vcard {
 		margin: 7px;
 	}
+	
 	.vcard-detail {
 		margin: 7px;
 	}
@@ -256,7 +254,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	display: none;
 }
 
-.vcard:hover>.vcard-hide {
+.vcard:hover > .vcard-hide {
 	display: block !important;
 }
 
@@ -264,33 +262,39 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	display: block;
 }
 
-.vcard:hover>.vcard-show {
+.vcard:hover > .vcard-show {
 	display: none !important;
 }
 
-@media ( min-width : 768px ) {
+@media (min-width:768px) {
 	.copy-btn-wrapper {
 		display: block ! important;
 	}
+	
 	.sample-in {
 		width: 48%;
 		float: left;
 	}
+	
 	.sample-out {
 		width: 48%;
 		float: right;
 	}
+	
 	.sample-in-wrapper {
 		width: 48%;
 		float: left;
 	}
+	
 	.sample-in-wrapper .copy-btn {
 		top: 8px;
 	}
+	
 	.sample-out-wrapper {
 		width: 48%;
 		float: right;
 	}
+	
 	.sample-out-wrapper .copy-btn {
 		top: 8px;
 	}
@@ -298,15 +302,15 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 
 .copy-btn-wrapper {
 	display: none;
-	margin: 0px;
+	margin: 0;
 	position: relative;
 }
 
 .copy-btn {
 	position: absolute;
-	top: 0px;
-	right: 0px;
-	margin: 0px;
+	top: 0;
+	right: 0;
+	margin: 0;
 	z-index: 10;
 	display: block;
 	font-size: 12px;
@@ -318,7 +322,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 
 .status-card {
 	background: #fff;
-	margin: 8px 0px;
+	margin: 8px 0;
 	padding: 5px;
 	display: flex;
 	flex-direction: column;
@@ -327,7 +331,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 .status-card-col {
 	display: flex;
 	flex-direction: row;
-	margin: 4px 0px;
+	margin: 4px 0;
 }
 
 .status-card-col *:nth-last-child(2) {
@@ -335,12 +339,12 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	flex-grow: 1;
 }
 
-@media ( min-width : 576px) {
+@media (min-width:576px) {
 	.status-card-col {
 		float: left;
 		flex-direction: column;
 		justify-content: center;
-		margin: 0px;
+		margin: 0;
 	}
 	
 	.status-card {
@@ -354,15 +358,15 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 
 .status-card-author {
 	font-size: 15px;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 	word-break: break-all;
 }
 
 .status-card-time {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
-@media ( min-width : 576px) {
+@media (min-width:576px) {
 	.pagenav {
 		float: right;
 	}
