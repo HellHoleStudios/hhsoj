@@ -76,8 +76,8 @@ function reloadIOStyle(){
 	b.prev().addClass('sample-out-wrapper');
 	
 	a.prev().before('<h6 class="d-sm-block d-md-none">Input</h6>');
-	a.prev().before('<h6 class="d-none d-md-block" style="width:48%;float:right;">Input</h6>');
-	a.prev().before('<h6 class="d-none d-md-block" style="width:48%;float:left;">Output</h6>');
+	a.prev().before('<h6 class="d-none d-md-block" style="width:48%;float:left;">Input</h6>');
+	a.prev().before('<h6 class="d-none d-md-block" style="width:48%;float:right;">Ouput</h6>');
 	b.prev().before('<h6 class="d-sm-block d-md-none">Output</h6>')
 	b.after('<div style="clear:both;margin-bottom:8px;"></div>');
 }

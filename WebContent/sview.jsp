@@ -176,7 +176,7 @@
 	}
 	
 	function getk(){
-		var k=4;
+		var k;
 		if(window.innerWidth>=1200){
 			k=9;
 		}
@@ -185,6 +185,18 @@
 		}
 		else if(window.innerWidth>=768){
 			k=5;
+		}
+		else if(document.documentElement.clientWidth>=538){
+			k=4;
+		}
+		else if(document.documentElement.clientWidth>=432){
+			k=3;
+		}
+		else if(document.documentElement.clientWidth>=326){
+			k=2;
+		}
+		else{
+			k=1;
 		}
 		return k;
 	}
