@@ -8,6 +8,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script src="https://cdn.bootcdn.net/ajax/libs/ace/1.4.11/ace.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/ace/1.4.11/ext-language_tools.min.js"></script>
 <jsp:include page="head.jsp"></jsp:include>
 <title>Submit - HHSOJ</title>
 </head>
@@ -51,7 +53,7 @@
 			<div class="input-group-prepend">
 	     			<span class="input-group-text">Language</span>
 	   		</div>
-			<select id="lang" class="form-control">
+			<select id="lang" class="form-control" onchange="changeLang()">
 				<%
 				HashMap<String,Language> arr=TomcatHelper.getLangs();
 				
@@ -64,12 +66,18 @@
 			</select>
 		</div>
 		
-		<textarea id="code" style="width:100%;height:600px;max-width:700px;"></textarea>
+		<div id="editor"></div>
 		<br/>
 		
 		<button onclick="submit()" class="btn btn-primary btn-submit">Submit!</button>
 	</div>
 	<script>
+		function changeLang(){
+			var lang=document.getElementById("lang").value;
+			if(lang==='cpp')lang='c_cpp';
+			editor.getSession().setMode('ace/mode/'+lang);
+		}
+	
 		function submit(){
 			var list=$(".btn-submit");
 			for(var i=0;i<list.length;i++){
@@ -80,8 +88,7 @@
 				"set":document.getElementById("set").value,
 				"id":document.getElementById("id").value,
 				"lang":document.getElementById("lang").value,
-				"code":document.getElementById("code").value,
-				
+				"code":editor.getValue(),
 			},function(data,status){
 				if(data=="OK"){
 					window.location="status.jsp";
@@ -94,6 +101,14 @@
 				}
 			});
 		}
+		
+		var editor = ace.edit("editor");
+		ace.config.set("themePath","https://cdn.bootcdn.net/ajax/libs/ace/1.4.11/");
+		ace.config.set("basePath","https://cdn.bootcdn.net/ajax/libs/ace/1.4.11/");
+		ace.config.set("modePath","https://cdn.bootcdn.net/ajax/libs/ace/1.4.11/");
+	    editor.setTheme("ace/theme/monokai");
+	    document.getElementById('editor').style.fontSize='12px';
+	    editor.getSession().setMode("ace/mode/c_cpp");
 	</script>
 </body>
 </html>

@@ -8,13 +8,13 @@ function reloadAll(){
 	postload.sort(function(a,b){
 		return a.p-b.p;
 	});
-	postload.forEach(task=>{
+	postload.forEach((task) => {
 		try{
 			task.f();
 		}
 		catch(e){
-			console.log('Error during task execution:');
-			console.log(e);
+			console.error('Error during task execution:');
+			console.error(e);
 		}
 	});
 }
@@ -43,10 +43,10 @@ function reloadCopyButton(){
 	
 	var clipboard=new ClipboardJS('.copy-btn');
 	clipboard.on('success', function(e) {
-	    e.clearSelection();
+		e.clearSelection();
 	});
 	clipboard.on('error', function(e) {
-	    alert('Copy failed :(');
+		alert('Copy failed :(');
 	});
 }
 
