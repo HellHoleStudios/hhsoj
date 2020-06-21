@@ -23,6 +23,8 @@ public class Sanitizer {
 					return value;
 				return null;
 			}).onElements("iframe")
+			.allowAttributes("src","type").onElements("source")
+			.allowAttributes("controls").onElements("audio","video")
 			.allowAttributes("allow", "frameborder", "framespacing", "allowfullscreen").onElements("iframe")
 			.toFactory()
 			.and(Sanitizers.BLOCKS).and(Sanitizers.FORMATTING).and(Sanitizers.IMAGES)
