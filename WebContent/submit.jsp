@@ -12,6 +12,12 @@
 <script src="https://cdn.bootcdn.net/ajax/libs/ace/1.4.11/ext-language_tools.min.js"></script>
 <jsp:include page="head.jsp"></jsp:include>
 <title>Submit - HHSOJ</title>
+<style>
+#editor {
+	height: 800px;
+	width: 100%;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="topbar.jsp"></jsp:include>
@@ -65,38 +71,36 @@
 				%>
 			</select>
 		</div>
-		
+		<br/>
 		<div id="editor"></div>
 		<br/>
 		
 		<button onclick="submit()" class="btn btn-primary btn-submit">Submit!</button>
 	</div>
 	<script>
+		var aceNames=<%=TomcatHelper.getAceNames()%>;
+		
 		function changeLang(){
-			var lang=document.getElementById("lang").value;
-			if(lang==='cpp')lang='c_cpp';
+			var lang=aceNames[document.getElementById('lang').value];
+			if(lang===undefined){
+				lang='plain_text';
+			}
 			editor.getSession().setMode('ace/mode/'+lang);
 		}
 	
 		function submit(){
-			var list=$(".btn-submit");
-			for(var i=0;i<list.length;i++){
-				list[i].disabled=true;
-			}
+			var list=$('.btn-submit').attr('disabled','true');
 			
-			$.post("submitS",{
-				"set":document.getElementById("set").value,
-				"id":document.getElementById("id").value,
-				"lang":document.getElementById("lang").value,
-				"code":editor.getValue(),
+			$.post('submitS',{
+				'set':document.getElementById('set').value,
+				'id':document.getElementById('id').value,
+				'lang':document.getElementById('lang').value,
+				'code':editor.getValue(),
 			},function(data,status){
-				if(data=="OK"){
-					window.location="status.jsp";
+				if(data==='OK'){
+					window.location='status.jsp';
 				}else{
-					var list=$(".btn-submit");
-					for(var i=0;i<list.length;i++){
-						list[i].disabled=false;
-					}
+					var list=$('.btn-submit').removeAttr('disabled');
 					alert(data);
 				}
 			});
@@ -107,8 +111,10 @@
 		ace.config.set("basePath","https://cdn.bootcdn.net/ajax/libs/ace/1.4.11/");
 		ace.config.set("modePath","https://cdn.bootcdn.net/ajax/libs/ace/1.4.11/");
 	    editor.setTheme("ace/theme/monokai");
-	    document.getElementById('editor').style.fontSize='12px';
-	    editor.getSession().setMode("ace/mode/c_cpp");
+	    editor.setOptions({
+    		fontSize: "12pt"
+    	});
+	    changeLang();
 	</script>
 </body>
 </html>

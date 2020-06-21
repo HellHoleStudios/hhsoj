@@ -3,6 +3,7 @@ package com.hellhole.hhsoj.tomcat.util;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import com.google.gson.Gson;
 import com.hellhole.hhsoj.common.FileUtil;
@@ -162,6 +163,23 @@ public class TomcatHelper {
 		
 		return FileUtil.readLang(config.path+"/config/lang.json");
 	}
+	
+	public static String getAceNames(){
+		HashMap<String,Language> config=getLangs();
+		StringBuilder str=new StringBuilder();
+		str.append('{');
+		for(Entry<String,Language> e:config.entrySet()) {
+			str.append('"');
+			str.append(e.getKey());
+			str.append("\":\"");
+			str.append(e.getValue().aceName);
+			str.append("\",");
+		}
+		str.deleteCharAt(str.length()-1);
+		str.append('}');
+		return str.toString();
+	}
+	
 	public static int getSubmissionCount() {
 		if(config==null){
 			fetchConfig();

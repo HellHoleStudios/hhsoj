@@ -9,6 +9,7 @@ public class Language {
 	public String name;
 	public String id;
 	public String ext;
+	public String aceName;
 	/**
 	 * Null=no compile need <br/>
 	 * file is in Main.ext <br/>

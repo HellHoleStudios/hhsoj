@@ -1,6 +1,7 @@
 {
 	"cpp":{
 		"ext":"cpp",
+		"aceName":"c_cpp",
 		"name":"GNU C++ 11",
 		"compileCmd":["g++","Main.cpp","-o","Main.exe","-O2","-DONLINE_JUDGE","-std=gnu++11"],
 		"runCmd":["./Main.exe"],
@@ -9,6 +10,7 @@
 	},
 	"python":{
 		"ext":"py",
+		"aceName":"python",
 		"name":"Python 3",
 		"compileCmd":[],
 		"runCmd":["python3","Main.py"],

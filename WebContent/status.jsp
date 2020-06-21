@@ -61,7 +61,7 @@
 		%>
 			<div class="status-card row card">
 		  		<div class="status-card-col col-sm-3">
-		  			<a class="status-card-id" href="sview.jsp?id=<%=s.id%>">#<%=s.id%></a>
+		  			<a class="status-card-id" style="flex-grow:1;max-height:30px;"href="sview.jsp?id=<%=s.id%>">#<%=s.id%></a>
 		  			<p class="status-card-author"><b><%=Sanitizer.encodeEntity(s.author)%></b></p>
 		  		</div>
 	  			<div class="status-card-col col-sm-2">
@@ -72,10 +72,14 @@
 	  				</a>
 	  			</div>
 	  			<div class="status-card-col col-sm-3">
-	  				<a href="pview.jsp?set=<%=s.problemSet%>&id=<%=s.problemId %>"><%=s.problemSet+"."+s.problemId %></a>
+	  				<a href="pview.jsp?set=<%=s.problemSet%>&id=<%=s.problemId %>"><%=s.problemSet%>.<%=s.problemId %></a>
 	  			</div>
-	  			<div class="status-card-col col-sm-4">
-	  				<span><%=s.lang %> <%=s.getRunTime() %>ms <%=s.getRunMem() %>KB</span>
+	  			<div class="status-card-col col-sm-4 d-block d-sm-flex">
+	  				<span style="flex-grow:1;">
+	  					<%=TomcatHelper.getLangs().get(s.lang).name %><br class="d-none d-sm-block d-md-none"/>
+	  					<i class="fa fa-clock-o"></i><%=s.getRunTime() %>ms
+	  					<i class="fa fa-database"></i><%=s.getRunMem() %>KB
+	  				</span>
 	  				<p class="status-card-time"><%=new Date(s.submitTime)%></p>
 	  			</div>
 	  		</div>

@@ -4,12 +4,12 @@ span, th, td, pre, code {
 	font-family: 'Consolas', 'Ubuntu Mono', 'Lucida Console', monospace;
 }
 
-[class~="btn"], input[type~=button], input[type~=submit], button {
+.topbar {
 	font-family: 'Consolas', 'Ubuntu Mono', 'Lucida Console', monospace;
 }
 
-.topbar {
-	font-family: 'Consolas', 'Ubuntu Mono', 'Lucida Console', monospace;
+[class~="btn"], input[type~=button], input[type~=submit], button {
+	font-family: 'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Noto Sans CJK JP', 'Noto Sans SC', 'Noto Sans', 'Roboto', sans-serif;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
