@@ -60,14 +60,14 @@
 					Submission s=arr.get(i);
 		%>
 			<div class="status-card row card">
-		  		<div class="status-card-col col-sm-3">
+		  		<div class="status-card-col col-sm-2">
 		  			<a class="status-card-id" style="flex-grow:1;max-height:30px;"href="sview.jsp?id=<%=s.id%>">#<%=s.id%></a>
 		  			<p class="status-card-author"><b><%=Sanitizer.encodeEntity(s.author)%></b></p>
 		  		</div>
-	  			<div class="status-card-col col-sm-2">
+	  			<div class="status-card-col col-sm-3">
 	  				<a class="nostyle" href="sview.jsp?id=<%=s.id%>">
-		  				<span class="badge" style="background:<%=StyleUtil.colorize(s.score) %>;"><%=(s.isFinal?"Final":s.test)%></span>
-		  				<span class="badge" style="margin-top:4px;background:<%=StyleUtil.colorize(s.score) %>;"><%=String.format("%.0f", 100*s.score) %></span>
+		  				<span class="badge score-badge" style="background:<%=StyleUtil.colorize(s.score) %>;"><%=(s.isFinal?"Final":s.test)%></span>
+		  				<span class="badge score-badge" style="margin-top:4px;background:<%=StyleUtil.colorize(s.score) %>;"><%=String.format("%.0f", 100*s.score) %></span>
 	  				</a>
 	  			</div>
 	  			<div class="status-card-col col-sm-3">
@@ -75,18 +75,18 @@
 	  			</div>
 	  			<div class="status-card-col col-sm-4 d-block d-sm-flex">
 	  				<span style="flex-grow:1;">
-	  					<%=TomcatHelper.getLangs().get(s.lang).name %><br class="d-none d-sm-block d-md-none"/>
+	  					<%=StyleUtil.getCommonLangName(s.lang) %><br class="d-none d-sm-block d-md-none"/>
 	  					<i class="fa fa-clock-o"></i><%=s.getRunTime() %>ms
 	  					<i class="fa fa-database"></i><%=s.getRunMem() %>KB
 	  				</span>
-	  				<p class="status-card-time"><%=new Date(s.submitTime)%></p>
+	  				<p class="status-card-time"><%=StyleUtil.shortDate(s.submitTime/1000)%></p>
 	  			</div>
 	  		</div>
 		<%
 			}
 		%>
 		<hr/>
-		<ul class="pagination pagination-sm pagenav">
+		<ul class="pagination pagination-sm sm-float-right">
 		    <li class="page-item"><a class="page-link" href="?page=<%=pageId-10%>&renSize=<%=renSize%>">&lt;&lt;10</a></li>
 		    <li class="page-item"><a class="page-link" href="?page=<%=pageId-1%>&renSize=<%=renSize%>">&lt;</a></li>
 		    <li class="page-item"><a class="page-link" href="?page=<%=pageId+1%>&renSize=<%=renSize%>">&gt;</a></li>

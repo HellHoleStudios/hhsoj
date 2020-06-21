@@ -454,7 +454,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	flex-direction: column;
 }
 
-.status-card .badge {
+.score-badge {
 	font-size: 15px;
 	font-weight: bold;
 	color: #fff;
@@ -494,7 +494,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 }
 
 @media (min-width: 576px) {
-	.pagenav {
+	.sm-float-right {
 		float: right;
 	}
 }

@@ -110,9 +110,9 @@
 		ace.config.set("themePath","https://cdn.bootcdn.net/ajax/libs/ace/1.4.11/");
 		ace.config.set("basePath","https://cdn.bootcdn.net/ajax/libs/ace/1.4.11/");
 		ace.config.set("modePath","https://cdn.bootcdn.net/ajax/libs/ace/1.4.11/");
-	    editor.setTheme("ace/theme/monokai");
+	    editor.setTheme("ace/theme/chrome");
 	    editor.setOptions({
-    		fontSize: "12pt"
+    		fontSize: "14px"
     	});
 	    changeLang();
 	</script>

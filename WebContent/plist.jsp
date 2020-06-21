@@ -26,7 +26,7 @@
 	<%
 			}
 		}catch(Exception e){
-			out.println("Nope");
+			response.sendRedirect("error/404.jsp");
 		}
 	%>
 	</div>

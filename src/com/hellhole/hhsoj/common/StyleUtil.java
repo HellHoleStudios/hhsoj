@@ -1,7 +1,9 @@
 package com.hellhole.hhsoj.common;
 
+import com.hellhole.hhsoj.tomcat.util.TomcatHelper;
+
 public class StyleUtil {
-	public static final String[] verFull = {
+	public static final String[] verFull = { 
 			"Accepted",
 			"Wrong Answer",
 			"Time Limit Exceeded",
@@ -9,8 +11,8 @@ public class StyleUtil {
 			"Runtime Error",
 			"Restrict Function",
 			"Judgement Failed",
-			"Point"};
-	public static final String[] verShort = {
+			"Point" };
+	public static final String[] verShort = { 
 			"AC",
 			"WA",
 			"TLE",
@@ -18,8 +20,8 @@ public class StyleUtil {
 			"RE",
 			"RF",
 			"JF",
-			"PT"};
-	public static final String[] verIcon = {
+			"PT" };
+	public static final String[] verIcon = { 
 			"check",
 			"close",
 			"clock-o",
@@ -27,8 +29,8 @@ public class StyleUtil {
 			"bomb",
 			"ban",
 			"remove",
-			"pie-chart"};
-	public static final String[] verColor = {
+			"pie-chart" };
+	public static final String[] verColor = { 
 			"#00ee00",
 			"#0000ee",
 			"#ff8800",
@@ -36,8 +38,8 @@ public class StyleUtil {
 			"#dd0000",
 			"#ddcc00",
 			"#aaaaaa",
-			"#000000"};
-	public static final String[] verDescription = { 
+			"#000000" };
+	public static final String[] verDescription = {
 			"Your output is correct",
 			"Your program produced incorrect output",
 			"Your program used too much time to run",
@@ -113,6 +115,71 @@ public class StyleUtil {
 		return "Inf";
 	}
 
+	public static String plural(long num, String singular, String plural) {
+		if (num > 1)
+			return plural;
+		return singular;
+	}
+
+	public static String shortDate(long time) {
+		long diff = System.currentTimeMillis()/1000 - time;
+		if (diff == 0) {
+			return "now";
+		}
+		String suffix = "ago";
+		if (diff < 0) {
+			diff = -diff;
+			suffix = "later";
+		}
+		if (diff < 60) {
+			return diff + " sec " + suffix;
+		}
+		if (diff < 3600) {
+			long sec = diff % 60;
+			if (sec == 0) {
+				return diff / 60 + " min " + suffix;
+			}
+			return diff / 60 + " min " + sec + " sec " + suffix;
+		}
+		if (diff < 86400) {
+			long min = (diff % 3600 + 30) / 60;
+			if (min == 0) {
+				return diff / 3600 + " h " + suffix;
+			}
+			return diff / 3600 + " h " + min + " min " + suffix;
+		}
+		if (diff < 2629744) {
+			long day = diff / 86400;
+			long h = (diff % 86400 + 1800) / 3600;
+			if (h == 0) {
+				return day + plural(day, " day ", " days ") + suffix;
+			}
+			return day + plural(day, " day ", " days ") + h + " h " + suffix;
+		}
+		if (diff < 31556926) {
+			long month = diff / 2629744;
+			long day = (diff % 2629744 + 43200) / 86400;
+			if (day == 0) {
+				return month + plural(month, " month ", " months ") + suffix;
+			}
+			return month + plural(month, " month ", " months ") + day + plural(day, " day ", " days ") + suffix;
+		}
+		long year = diff / 31556926;
+		long month = (diff % 31556926) / 2629744;
+		long day = ((diff - diff % 31556926) % 86400 + 43200) / 86400;
+		if (month == 0) {
+			if (day == 0) {
+				return year + plural(year, " year ", " years ") + suffix;
+			}
+			return year + plural(year, " year ", " years ") + day + plural(day, " day ", " days ") + suffix;
+		}
+		if (day == 0) {
+			return year + plural(year, " year ", " years ") + month + plural(month, " month ", " months ") + suffix;
+		}
+		return year + plural(year, " year ", " years ") + month + plural(month, " month ", " months ") + day
+				+ plural(day, " day ", " days ") + suffix;
+	}
+
 	public static float squaredAvg(float x, float y, float a, float b) {
 		return (float) Math.sqrt((x * x * a + y * y * b) / (a + b));
 	}
@@ -135,6 +202,13 @@ public class StyleUtil {
 			return mixColorSquared(255, 136, 0, 238, 238, 0, 0.7f - x, x - 0.3f);
 		}
 		return mixColorSquared(238, 238, 0, 0, 238, 0, 1.0f - x, x - 0.7f);
+	}
+
+	public static String getCommonLangName(String lang) {
+		Language l = TomcatHelper.getLangs().get(lang);
+		if (l == null)
+			return lang;
+		return l.name;
 	}
 
 }

@@ -96,7 +96,6 @@ public class ServerManager {
 	}
 
 	public synchronized void saveSubmission(Submission sub) {
-		System.out.println(sub);
 		try{
 			Gson gs=new Gson();
 			String js=gs.toJson(sub);

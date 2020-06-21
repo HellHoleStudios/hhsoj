@@ -45,18 +45,28 @@
 	<div class="container">
 		<h1 class="title-left">#<%=id%> </h1>
 		<i style="font-size:20px;"> by <%=Sanitizer.encodeEntity(s.author)%></i>
-		<span class="title-right">
-			Submit Time: <%=new Date(s.submitTime)%><br/>
-			Judger: <%=s.judger%> <br/>
-		</span>
 		
-		<a href="rejudge.jsp?id=<%=id%>" class="btn btn-primary">Rejudge</a>
+		<a href="rejudge.jsp?id=<%=id%>" class="title-right btn btn-primary">Rejudge</a>
 		
 		<hr />
-		<span><%=(s.isFinal?"Final":"Running on "+s.test)%> / <%=s.getRunTime()%>ms / <%=s.getRunMem()%>KB</span><br/>
-		<span>Score: <%=String.format("%.1f", 100*s.score)%></span><br/>
-		<span>Problem: <a href="pview.jsp?set=<%=s.problemSet%>&id=<%=s.problemId%>"><%=s.problemSet+"."+s.problemId%></a></span><br/>
-		<span>Language: <%=s.lang%></span>
+		<div class="sm-float-right">
+			<p>
+			Submitted <%=StyleUtil.shortDate(s.submitTime/1000)%><br/>
+			<%=new Date(s.submitTime)%><br/>
+			Judger: <%=s.judger%>
+			</p>
+		</div>
+		<div>
+			<p>
+			<i class="fa fa-clock-o"></i><span> <%=s.getRunTime() %> ms</span> / 
+	  		<i class="fa fa-database"></i><span> <%=s.getRunMem() %> KB</span><br/>
+			<span class="badge score-badge" style="background:<%=StyleUtil.colorize(s.score) %>;"><%=(s.isFinal?"Final":s.test)%></span>
+		  	<span class="badge score-badge" style="margin-top:4px;background:<%=StyleUtil.colorize(s.score) %>;"><%=String.format("%.0f", 100*s.score) %></span>
+		  	<br/>
+			Problem: <a href="pview.jsp?set=<%=s.problemSet%>&id=<%=s.problemId%>"><%=s.problemSet+"."+s.problemId%></a><br/>
+			Language: <%=StyleUtil.getCommonLangName(s.lang)%>
+			</p>
+		</div>
 		<hr/>
 		<div class="card">
 			<div class="card-header">

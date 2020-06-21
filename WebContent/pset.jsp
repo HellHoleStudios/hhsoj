@@ -1,5 +1,6 @@
 <%@page import="java.util.Date"%>
 <%@page import="com.hellhole.hhsoj.common.Problemset"%>
+<%@page import="com.hellhole.hhsoj.common.StyleUtil"%>
 <%@page import="com.hellhole.hhsoj.tomcat.util.TomcatHelper"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -20,7 +21,7 @@
 			for(Problemset p:arr){
 				
 		%>
-				<a href="plist.jsp?id=<%=p.id %>"><h1><%=p.name %></h1></a> opens at <b><%=new Date(p.stTime) %></b> freezes at <b><%=new Date(p.edTime) %></b>
+				<a href="plist.jsp?id=<%=p.id %>"><h1><%=p.name %></h1></a> opens <b><%=StyleUtil.shortDate(p.stTime) %></b> freezes <b><%=StyleUtil.shortDate(p.edTime) %></b>
 		<%
 			}
 			
