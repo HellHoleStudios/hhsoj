@@ -1,10 +1,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="apple-mobile-web-app-title" content="HellOJ">
-<meta name="application-name" content="HellOJ">
+<meta name="apple-mobile-web-app-title" content="HHSOJ">
+<meta name="application-name" content="HHSOJ">
 <meta name="theme-color" content="#f8f8f8">
-<meta name="description" content="HellOJ - Free OJ by Hell Hole Studios">
-<meta name="keywords" content="OJ HellOJ HHSOJ Online Judge">
+<meta name="description" content="HHSOJ - Free OJ by Hell Hole Studios">
+<meta name="keywords" content="OJ HHSOJ Online Judge">
 
 <link rel="icon" type="image/png" href="assets/img/hhsoj_bt_16x.png" sizes="16x16">
 <link rel="icon" type="image/png" href="assets/img/hhsoj_bt_32x.png" sizes="32x32">
