@@ -7,6 +7,7 @@ import java.net.Socket;
 import com.google.gson.Gson;
 import com.hellhole.hhsoj.common.FileUtil;
 import com.hellhole.hhsoj.common.Submission;
+import com.hellhole.hhsoj.tomcat.util.TomcatHelper;
 
 public class SocketThread extends Thread {
 	private Socket sock;
@@ -43,7 +44,7 @@ public class SocketThread extends Thread {
 			if("judger".equals(op)){
 				judgerRegister();
 				
-				dos.writeUTF(FileUtil.readFile("config/lang.json"));
+				dos.writeUTF(FileUtil.readFile(TomcatHelper.getConfig().path+"/config/lang.json"));
 			}else if("submit".equals(op)){
 				addSubmission();
 			}else{

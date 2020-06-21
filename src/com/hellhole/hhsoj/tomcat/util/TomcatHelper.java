@@ -20,7 +20,7 @@ import com.hellhole.hhsoj.common.User;
  */
 public class TomcatHelper {
 	public static Config config;
-	public static Gson gs=new Gson();
+	private static Gson gs=new Gson();
 	
 	public static void fetchConfig(){
 		if(!new File("config.json").exists()){
@@ -32,11 +32,14 @@ public class TomcatHelper {
 		}
 		
 	}
+	
+	public static Config getConfig() {
+		if(config==null)fetchConfig();
+		return config;
+	}
+	
 	public static ArrayList<User> getUsers(){
-		if(config==null){
-			fetchConfig();
-		}
-		File fa=new File(config.path+"/users");
+		File fa=new File(getConfig().path+"/users");
 		if(!fa.exists()){
 			fa.mkdirs();
 		}
@@ -53,10 +56,7 @@ public class TomcatHelper {
 		return arr;
 	}
 	public static void addUser(String user, String pass) {
-		if(config==null){
-			fetchConfig();
-		}
-		File fa=new File(config.path+"/users");
+		File fa=new File(getConfig().path+"/users");
 		if(!fa.exists()){
 			fa.mkdirs();
 		}
@@ -66,14 +66,11 @@ public class TomcatHelper {
 		x.password=pass;
 		x.isAdmin=false;
 		
-		FileUtil.writeFile(config.path+"/users/"+x.id, gs.toJson(x));
+		FileUtil.writeFile(getConfig().path+"/users/"+x.id, gs.toJson(x));
 	}
 	
 	public static ArrayList<Problemset> getProblemsets(){
-		if(config==null){
-			fetchConfig();
-		}
-		File fa=new File(config.path+"/problems");
+		File fa=new File(getConfig().path+"/problems");
 		if(!fa.exists()){
 			fa.mkdirs();
 		}
@@ -88,7 +85,6 @@ public class TomcatHelper {
 				Problemset p=getProblemset(sub.getName());
 				
 				p.id=sub.getName();
-//				System.out.println(p.id);
 				ap.add(p);
 			}catch(Exception e){
 				System.out.println("Corrupted P.Set Data Found:"+sub);
@@ -99,16 +95,13 @@ public class TomcatHelper {
 	}
 	
 	public static ArrayList<Problem> getAllProblems(String set){
-		if(config==null){
-			fetchConfig();
-		}
-		File fa=new File(config.path+"/problems");
+		File fa=new File(getConfig().path+"/problems");
 		if(!fa.exists()){
 			fa.mkdirs();
 		}
 		
 		ArrayList<Problem> arr=new ArrayList<>();
-		File s=new File(config.path+"/problems/"+set);
+		File s=new File(getConfig().path+"/problems/"+set);
 		if(!s.exists()){
 			return arr;
 		}
@@ -125,11 +118,7 @@ public class TomcatHelper {
 	}
 	
 	public static Problem getProblem(String set,String id){
-		try{
-			if(config==null){
-				fetchConfig();
-			}
-			
+		try{			
 			Problem p=FileUtil.readProbInfo(getProblemPath(set, id)+"/problem.json");
 			p.set=set;
 			p.id=id;
@@ -139,36 +128,26 @@ public class TomcatHelper {
 		}
 	}
 	public static String getProblemPath(String set, String id) {
-		if(config==null){
-			fetchConfig();
-		}
-		return config.path+"/problems/"+set+"/"+id;
+		return getConfig().path+"/problems/"+set+"/"+id;
 	}
-	public static Problemset getProblemset(String set) {
-		if(config==null){
-			fetchConfig();
-		}
-		
-		return gs.fromJson(FileUtil.readFile(config.path+"/problems/"+set+"/problemset.json"), Problemset.class);
+	public static Problemset getProblemset(String set) {	
+		return gs.fromJson(FileUtil.readFile(getConfig().path+"/problems/"+set+"/problemset.json"), Problemset.class);
 	}
 	
 	public static HashMap<String,Language> getLangs(){
-		if(config==null){
-			fetchConfig();
-		}
-		File fa=new File(config.path+"/config");
+		File fa=new File(getConfig().path+"/config");
 		if(!fa.exists()){
 			fa.mkdirs();
 		}
 		
-		return FileUtil.readLang(config.path+"/config/lang.json");
+		return FileUtil.readLang(getConfig().path+"/config/lang.json");
 	}
 	
 	public static String getAceNames(){
-		HashMap<String,Language> config=getLangs();
+		HashMap<String,Language> langs=getLangs();
 		StringBuilder str=new StringBuilder();
 		str.append('{');
-		for(Entry<String,Language> e:config.entrySet()) {
+		for(Entry<String,Language> e:langs.entrySet()) {
 			str.append('"');
 			str.append(e.getKey());
 			str.append("\":\"");
@@ -181,11 +160,7 @@ public class TomcatHelper {
 	}
 	
 	public static int getSubmissionCount() {
-		if(config==null){
-			fetchConfig();
-		}
-		
-		File fa=new File(config.path+"/submission");
+		File fa=new File(getConfig().path+"/submission");
 		if(!fa.exists()){
 			fa.mkdirs();
 		}
@@ -194,11 +169,7 @@ public class TomcatHelper {
 	}
 	
 	public static ArrayList<Submission> getAllSubmissions(){
-		if(config==null){
-			fetchConfig();
-		}
-		
-		File fa=new File(config.path+"/submission");
+		File fa=new File(getConfig().path+"/submission");
 		if(!fa.exists()){
 			fa.mkdirs();
 		}
@@ -211,15 +182,11 @@ public class TomcatHelper {
 	}
 	
 	public static Submission getSubmission(String id){
-		if(config==null){
-			fetchConfig();
-		}
-		
-		File fa=new File(config.path+"/submission");
+		File fa=new File(getConfig().path+"/submission");
 		if(!fa.exists()){
 			fa.mkdirs();
 		}
 		
-		return FileUtil.readSubmissionInfo(config.path+"/submission/"+id+".json");
+		return FileUtil.readSubmissionInfo(getConfig().path+"/submission/"+id+".json");
 	}
 }

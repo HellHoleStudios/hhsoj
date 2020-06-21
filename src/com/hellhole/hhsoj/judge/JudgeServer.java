@@ -89,10 +89,12 @@ public class JudgeServer {
 				dos.writeInt(Arrays.hashCode(by));
 			}
 			int extra=bytes-Math.max(0, (rc-1)*FileUtil.BLOCK_SIZE);
-			dis.readFully(by,0,extra);
-//			System.out.println("ExWrite:"+read);
-			dos.writeInt(Arrays.hashCode(by));
-			fos.write(by,0,extra);
+			if(extra>0) {
+				dis.readFully(by,0,extra);
+//				System.out.println("ExWrite:"+read);
+				dos.writeInt(Arrays.hashCode(by));
+				fos.write(by,0,extra);
+			}
 			fos.close();
 			
 			long t=System.currentTimeMillis()-last;

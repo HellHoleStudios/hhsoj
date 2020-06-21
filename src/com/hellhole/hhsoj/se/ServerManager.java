@@ -9,7 +9,9 @@ import java.net.Socket;
 import java.util.Vector;
 
 import com.google.gson.Gson;
+import com.hellhole.hhsoj.common.FileUtil;
 import com.hellhole.hhsoj.common.Submission;
+import com.hellhole.hhsoj.tomcat.util.TomcatHelper;
 
 /**
  * The main server to control everything. <br/>
@@ -94,17 +96,15 @@ public class ServerManager {
 	}
 
 	public synchronized void saveSubmission(Submission sub) {
+		System.out.println(sub);
 		try{
 			Gson gs=new Gson();
 			String js=gs.toJson(sub);
-			
-			if(!(new File("submission")).exists()){
-				new File("submission").mkdirs();
+			String path=TomcatHelper.getConfig().path+"/submission/";
+			if(!(new File(path)).exists()){
+				new File(path).mkdirs();
 			}
-			
-			PrintWriter pw=new PrintWriter(new File("submission/"+sub.id+".json"));
-			pw.print(js);
-			pw.close();
+			FileUtil.writeFile(path+sub.id+".json", js);
 		}catch(Exception e){
 			System.err.println("Cannot save submission!");
 			e.printStackTrace();

@@ -2,9 +2,9 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.hellhole.hhsoj</groupId>
   <artifactId>hhsoj</artifactId>
-  <version>3.2.7</version>
+  <version>3.2.8</version>
   <packaging>war</packaging>
-  <name>HellHoleStudios Online Judge</name>
+  <name>Hell Hole Studios Online Judge</name>
   <description>Free and Open Online Judge</description>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -63,4 +63,5 @@
   		<version>20191001.1</version>
   	</dependency>
   </dependencies>
+  <url>https://www.github.com/HellHoleStudios/hhsoj</url>
 </project>

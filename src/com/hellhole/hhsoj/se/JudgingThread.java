@@ -11,6 +11,7 @@ import com.hellhole.hhsoj.common.FileUtil;
 import com.hellhole.hhsoj.common.MiscUtil;
 import com.hellhole.hhsoj.common.Problem;
 import com.hellhole.hhsoj.common.Submission;
+import com.hellhole.hhsoj.tomcat.util.TomcatHelper;
 
 /**
  * A judging thread to communicate about judging
@@ -37,7 +38,7 @@ public class JudgingThread extends Thread {
 			Gson gs=new Gson();
 			j.dos.writeUTF(gs.toJson(sub));
 			
-			String path="problems/"+sub.problemSet+"/"+sub.problemId;
+			String path=TomcatHelper.getConfig().path+"/problems/"+sub.problemSet+"/"+sub.problemId;
 			
 			Problem p=FileUtil.readProbInfo(path+"/problem.json");
 			
@@ -112,7 +113,7 @@ public class JudgingThread extends Thread {
 		j.dos.writeUTF((x==null?"":x.getName()+"/")+y.getName());
 		int snd=(int)y.length();
 		j.dos.writeInt(snd);
-		
+				
 		byte[] by=new byte[FileUtil.BLOCK_SIZE];
 		FileInputStream fis=new FileInputStream(y);
 		int len=0;
@@ -123,6 +124,8 @@ public class JudgingThread extends Thread {
 		
 		while((len=fis.read(by, 0, FileUtil.BLOCK_SIZE))!=-1){
 //			System.out.println("Send"+len);
+			
+			if(len==0)break;
 			
 			//whenever send a string, needs rollback to confirm it's correctly received.
 			j.dos.write(by,0,len);
