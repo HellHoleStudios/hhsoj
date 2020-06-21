@@ -20,7 +20,6 @@
 		</ul>
 
 		<ul class="navbar-nav mr-auto topbar-nav">
-			<!-- This is to create a split line for mobile devices ---Zzzyt -->
 			<li class="nav-item">&nbsp;</li>
 		<%
 			if (session.getAttribute("username") == null) {
