@@ -14,7 +14,6 @@
 	<jsp:include page="topbar.jsp"></jsp:include>
 	<div class="container">
 		<h1 class="title-left">Problem list of <%=request.getParameter("id")%></h1>
-		<span class="title-right"><br/><a href="pset.jsp">Back</a></span>
 		<hr/>
 	<%
 		try{

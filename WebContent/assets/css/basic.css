@@ -1,6 +1,25 @@
-
 /* HHSOJ basic CSS file */
 /* by Zzzyt from Hell Hole Studios */
+
+body {
+	background: #f8f8f8;
+}
+
+.container {
+	background: #f8f8f8;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+	font-family: 'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Noto Sans CJK JP', 'Noto Sans SC', 'Noto Sans', 'Roboto', sans-serif;
+}
+
+[class~="title"] {
+	font-family: 'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Noto Sans CJK JP', 'Noto Sans SC', 'Noto Sans', 'Roboto', sans-serif;
+}
+
+span, th, td, pre, code {
+	font-family: 'Consolas', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
 
 hr {
 	margin-top: 10px;
@@ -8,8 +27,9 @@ hr {
 	clear: both;
 }
 
-input[type=button], input[type=submit], button {
+[class~="btn"], input[type~=button], input[type~=submit], button {
 	margin: 5px;
+	font-family: 'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Noto Sans CJK JP', 'Noto Sans SC', 'Noto Sans', 'Roboto', sans-serif;
 }
 
 a[class~="btn"] {
@@ -20,13 +40,34 @@ div[class~="input-group"] {
 	margin: 5px;
 }
 
+.nostyle, .nostyle:hover, .nostyle:visited, .notstyle:active {
+	color: inherit;
+	text-decoration: none;
+}
+
 table {
+	background: #fff;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 }
 
+table>tbody>tr>th {
+	background: #dee2e6;
+}
+
+table>tr>th {
+	background: #dee2e6;
+}
+
 code, kbd, pre, samp {
 	padding: 3px 6px !important;
+	border-radius: 3px;
+	background-color: #f0f0f0;
+}
+
+code:empty, kdb:empty, pre:empty, samp:empty {
+	border-radius: 0;
+	visibility: hidden;
 }
 
 pre {
@@ -36,6 +77,10 @@ pre {
 
 pre > code {
 	padding: 0 !important;
+}
+
+.hljs {
+	border-radius: 3px;
 }
 
 /* Sorry Bootstrap, but flexs are just too hard to handle */
@@ -48,6 +93,7 @@ pre > code {
 /* from excing, slightly modified by Zzzyt */
 
 .octicon {
+	color: #1b1f23;
 	display: inline-block;
 	fill: currentColor;
 	vertical-align: middle;
@@ -111,7 +157,12 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	text-align: right;
 }
 
+.title-right p, .title-right span, .title-right i, .title-right b {
+	color: #777;
+}
+
 .title-left {
+	font-weight: bold;
 	display: inline;
 }
 
@@ -126,11 +177,27 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	clear: both;
 }
 
+#statement h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
+
+/* topbar */
+
 .topbar-item a {
+	transition: 0.2s;
+	font-weight: bold;
 	font-size: 22px;
 	line-height: 34px;
 	padding-left: 8px !important;
 	padding-right: 8px !important;
+}
+
+.topbar-item:hover {
+	background: #777;
+}
+
+.navbar-brand:hover {
+	background: #777;
 }
 
 .navbar-brand img {
@@ -160,6 +227,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 }
 
 .topbar {
+	font-family: 'Consolas', 'Ubuntu Mono', 'Lucida Console', monospace;
 	padding: 0;
 }
 
@@ -170,10 +238,6 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 
 .card-collapse {
 	margin-bottom: 10px;
-}
-
-.nostyle, .nostyle:hover, .nostyle:visited, .notstyle:active {
-	text-decoration: none;
 }
 
 .status-table {
@@ -192,7 +256,12 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	padding: 0 20px;
 }
 
+/* vcard */
+
 .vcard {
+	background: #aaa;
+	transition: 0.3s;
+	font-family: 'Consolas', 'DejaVu Sans Mono', 'Ubuntu Mono', 'Lucida Console', monospace;
 	margin: 3px;
 	float: left;
 	width: 100px;
@@ -232,26 +301,36 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 }
 
 .vcard-verdict {
+	font-weight: bold;
+	color: #fff;
 	line-height: 40px;
 	font-size: 40px;
 }
 
 .vcard-score {
+	font-weight: bold;
+	color: #fff;
 	line-height: 40px;
 	font-size: 28px;
 }
 
 .vcard-tm {
+	color: #fff;
 	font-size: 12px;
 }
 
 .vcard-test {
+	color: #fff;
 	width: 90px;
 	font-size: 12px;
 }
 
 .vcard-hide {
 	display: none;
+}
+
+.vcard:hover {
+	filter: brightness(85%);
 }
 
 .vcard:hover > .vcard-hide {
@@ -265,6 +344,40 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 .vcard:hover > .vcard-show {
 	display: none !important;
 }
+
+.vcard *{
+	font-family: inherit;
+}
+
+.vcard-ac {
+	background: #0c0;
+}
+
+.vcard-wa {
+	background: #00d;
+}
+
+.vcard-tle {
+	background: #f80;
+}
+
+.vcard-mle {
+	background: #a0a;
+}
+
+.vcard-re {
+	background: #d00;
+}
+
+.vcard-rf {
+	background: #cb0;
+}
+
+.vcard-pt {
+	background: #6cf;
+}
+
+/* Copy button */
 
 @media (min-width:768px) {
 	.copy-btn-wrapper {
@@ -307,6 +420,8 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 }
 
 .copy-btn {
+	color: #999;
+	background-color: transparent;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -320,12 +435,29 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	border-bottom-left-radius: 3px;
 }
 
+.copy-btn:hover {
+	color: #fff;
+	background-color: #666;
+}
+
+.colored-header span {
+	color: #fff;
+}
+
+/* Status card */
+
 .status-card {
 	background: #fff;
 	margin: 8px 0;
 	padding: 5px;
 	display: flex;
 	flex-direction: column;
+}
+
+.status-card .badge {
+	font-size: 15px;
+	font-weight: bold;
+	color: #fff;
 }
 
 .status-card-col {

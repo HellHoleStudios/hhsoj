@@ -122,7 +122,7 @@
 										<div class="collapse vcard-detail" id="tr<%=e.getKey()+"w"+cnt%>" data-parent="#set<%=e.getKey()%>">
 											<div class="card card-body">
 												<h3 style="display:inline;"><a data-toggle="collapse" href="#tr<%=e.getKey()+"w"+cnt%>">#<%=cnt%></a></h3>
-												<span style="float:right;"><%=tr.time%>ms / <%=tr.memory%>KB / <%=StyleUtil.styledVerdict(set.getVerdict())%></span>
+												<span style="float:right;"><%=tr.time%>ms / <%=tr.memory%>KB / <%=StyleUtil.styledVerdict(tr.verdict)%></span>
 												<h5>Input</h5>
 												<pre><%=Sanitizer.encodeEntity(tr.input)%></pre>
 												<h5>Output</h5>

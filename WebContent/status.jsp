@@ -65,10 +65,9 @@
 		  			<p class="status-card-author"><b><%=Sanitizer.encodeEntity(s.author)%></b></p>
 		  		</div>
 	  			<div class="status-card-col col-sm-2">
-	  				<a href="sview.jsp?id=<%=s.id%>">
-		  				<span class="badge" style="background:<%=StyleUtil.colorize(s.score) %>;">
-		  					<%=(s.isFinal?"Final":s.test)%>&nbsp;&nbsp;<%=String.format("%.0f", 100*s.score) %>
-		  				</span>
+	  				<a class="nostyle" href="sview.jsp?id=<%=s.id%>">
+		  				<span class="badge" style="background:<%=StyleUtil.colorize(s.score) %>;"><%=(s.isFinal?"Final":s.test)%></span>
+		  				<span class="badge" style="margin-top:4px;background:<%=StyleUtil.colorize(s.score) %>;"><%=String.format("%.0f", 100*s.score) %></span>
 	  				</a>
 	  			</div>
 	  			<div class="status-card-col col-sm-3">

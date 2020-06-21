@@ -38,20 +38,20 @@ public class StyleUtil {
 			"#aaaaaa",
 			"#000000"};
 	public static final String[] verDescription = { 
-			"Your code is correct",
-			"Your code produced incorrect output",
-			"Your code used too much time to run",
-			"Your code used too much memory to run",
-			"Your code exited abnormally",
-			"Your code used illegal system call",
+			"Your output is correct",
+			"Your program produced incorrect output",
+			"Your program used too much time to run",
+			"Your program used too much memory to run",
+			"Your program exited abnormally",
+			"Your program used illegal system call",
 			"There's something wrong with our system",
-			"Click to see detail" };
+			"Verdict is given in the form of points" };
 	public static final String verFormat = "<span class=\"verdict-span\" style=\"color:%s;font-weight:bold\" title=\"%s\"><i class=\"%s\"></i> %s</span>";
 
 	public static String styledVerdict(String ver) {
 		for (int i = 0; i < verFull.length; i++) {
 			if (ver.equals(verFull[i])) {
-				return String.format(verFormat, "fa fa-"+verColor[i], verDescription[i], verIcon[i], ver);
+				return String.format(verFormat, verColor[i], verDescription[i], "fa fa-" + verIcon[i], ver);
 			}
 		}
 		return String.format(verFormat, "#cccccc", "", "", ver);
@@ -60,7 +60,7 @@ public class StyleUtil {
 	public static String styledVerdict(String ver, String color) {
 		for (int i = 0; i < verFull.length; i++) {
 			if (ver.equals(verFull[i])) {
-				return String.format(verFormat, color, verDescription[i], verIcon[i], ver);
+				return String.format(verFormat, color, verDescription[i], "fa fa-" + verIcon[i], ver);
 			}
 		}
 		return String.format(verFormat, color, "", "", ver);
