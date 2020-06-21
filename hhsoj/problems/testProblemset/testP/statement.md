@@ -39,10 +39,10 @@ inline code `printf()` or `freopen("test.in","r",stdin)`.
 
 ------------
 
-### Sample Code
-#### Sample Code
-##### Sample Code
-###### Sample Code
+### Sample Code (h3)
+#### Sample Code (h4)
+##### Sample Code (h5)
+###### Sample Code (h6)
 
 ```python
 print('Hello,World!')
@@ -111,7 +111,7 @@ $$
 
 ### Picture
 
-![hhsoj](assets/img/HHSOJct128x.png)
+![hhsoj](assets/img/hhsoj_ct_128x.png)
 
 ![hhsoj](assets/img/anchor.svg)
 

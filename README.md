@@ -17,9 +17,9 @@ JSON parsing with [Gson](https://github.com/google/gson).
 Server-side markdown rendering with [flexmark](https://github.com/vsch/flexmark-java).
 
 Flexmark extensions include:
-- flexmark-ext-gfm-strikethrough
-- flexmark-ext-tables
-- flexmark-ext-media-tags (Modified)
+-	flexmark-ext-gfm-strikethrough
+-	flexmark-ext-tables
+-	flexmark-ext-media-tags (Modified)
 
 # Links
 [Documentation on everything](https://xgn.gitbook.io/hhsoj-essential-doc/)

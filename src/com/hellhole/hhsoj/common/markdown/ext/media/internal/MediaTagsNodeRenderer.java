@@ -5,7 +5,12 @@ import com.hellhole.hhsoj.common.markdown.ext.media.BilibiliLink;
 import com.hellhole.hhsoj.common.markdown.ext.media.YoutubeLink;
 import com.hellhole.hhsoj.common.markdown.ext.media.VideoLink;
 import com.vladsch.flexmark.html.HtmlWriter;
-import com.vladsch.flexmark.html.renderer.*;
+import com.vladsch.flexmark.html.renderer.LinkType;
+import com.vladsch.flexmark.html.renderer.NodeRenderer;
+import com.vladsch.flexmark.html.renderer.NodeRendererContext;
+import com.vladsch.flexmark.html.renderer.NodeRendererFactory;
+import com.vladsch.flexmark.html.renderer.NodeRenderingHandler;
+import com.vladsch.flexmark.html.renderer.ResolvedLink;
 import com.vladsch.flexmark.util.data.DataHolder;
 import org.jetbrains.annotations.NotNull;
 

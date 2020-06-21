@@ -1,15 +1,15 @@
 '''
-the argument to call this 
+the argument to call this
 core.py <tl> <ml> <opCodeLen> <opCodes> <opFileLen> <opFiles> <codeLen> <code>
 '''
 
 
 try:
-    import lorun 
+    import lorun
     import os
     import sys
     stderr=sys.stderr
-except Exception as e: 
+except Exception as e:
     print("Cannot import classes:",e,file=stderr)
     exit(101)
 

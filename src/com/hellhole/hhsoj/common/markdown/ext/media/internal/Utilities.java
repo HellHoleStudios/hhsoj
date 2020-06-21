@@ -10,7 +10,8 @@ final class Utilities {
 	private Utilities() {
 	}
 
-	public static String resolveYoutubeSrc(String urlStr) {
+	public static String resolveYoutubeSrc(String src) {
+		String urlStr = src;
 		URL url = null;
 		try {
 			url = new URL(urlStr);
@@ -84,7 +85,8 @@ final class Utilities {
 		return null;
 	}
 
-	public static String resolveBilibiliSrc(String urlStr) {
+	public static String resolveBilibiliSrc(String src) {
+		String urlStr = src;
 		URL url = null;
 		try {
 			url = new URL(urlStr);

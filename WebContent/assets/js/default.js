@@ -1,7 +1,7 @@
 var postload=[];
 
-function addTask(a,f){
-	postload.push({p:a,f:f});
+function addTask(p,f){
+	postload.push({p,f});
 }
 
 function reloadAll(){
@@ -33,11 +33,11 @@ function reloadCopyButton(){
 			pre.id='copycode'+cnt;
 		}
 	}
-	for(var pre of a){
+	for(pre of a){
 		if(pre.textContent==='')continue;
-		var str='<div class="copy-btn-wrapper">'
+		var str='<div class="copy-btn-wrapper">';
 		str+='<button type="button" class="copy-btn" data-clipboard-target="#'+pre.id+'">Copy</button>';
-		str+='</div>'
+		str+='</div>';
 		$(pre).before(str);
 	}
 	
@@ -74,7 +74,7 @@ function reloadIOStyle(){
 	a.prev().before('<h6 class="d-sm-block d-md-none">Input</h6>');
 	a.prev().before('<h6 class="d-none d-md-block" style="width:48%;float:left;">Input</h6>');
 	a.prev().before('<h6 class="d-none d-md-block" style="width:48%;float:right;">Ouput</h6>');
-	b.prev().before('<h6 class="d-sm-block d-md-none">Output</h6>')
+	b.prev().before('<h6 class="d-sm-block d-md-none">Output</h6>');
 	b.after('<div style="clear:both;margin-bottom:8px;"></div>');
 }
 

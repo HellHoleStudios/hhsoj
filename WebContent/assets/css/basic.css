@@ -51,12 +51,21 @@ table {
 	margin-bottom: 1rem;
 }
 
+table>tr>th {
+	background: #dee2e6;
+}
+
 table>tbody>tr>th {
 	background: #dee2e6;
 }
 
-table>tr>th {
-	background: #dee2e6;
+pre {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+pre > code {
+	padding: 0 !important;
 }
 
 code, kbd, pre, samp {
@@ -68,15 +77,6 @@ code, kbd, pre, samp {
 code:empty, kdb:empty, pre:empty, samp:empty {
 	border-radius: 0;
 	visibility: hidden;
-}
-
-pre {
-	margin-top: 8px;
-	margin-bottom: 8px;
-}
-
-pre > code {
-	padding: 0 !important;
 }
 
 .hljs {
@@ -196,6 +196,12 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	background: #777;
 }
 
+.navbar-brand {
+	padding: 5px;
+	transition: 0.2s;
+	margin: 0;
+}
+
 .navbar-brand:hover {
 	background: #777;
 }
@@ -204,13 +210,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	width: 40px;
 }
 
-.navbar-brand {
-	padding: 5px;
-	transition: 0.2s;
-	margin: 0;
-}
-
-@media (min-width:768px) {
+@media (min-width: 768px) {
 	.topbar-nav {
 		height: 50px;
 	}
@@ -280,7 +280,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	border-radius: 0.25rem;
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
 	.vcard {
 		margin: 10px;
 	}
@@ -290,7 +290,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	}
 }
 
-@media (min-width:1200px) {
+@media (min-width: 1200px) {
 	.vcard {
 		margin: 7px;
 	}
@@ -379,7 +379,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 
 /* Copy button */
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
 	.copy-btn-wrapper {
 		display: block ! important;
 	}
@@ -466,7 +466,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	margin: 4px 0;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 	.status-card-col {
 		float: left;
 		flex-direction: column;
@@ -493,7 +493,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	margin-bottom: 0;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 	.pagenav {
 		float: right;
 	}
