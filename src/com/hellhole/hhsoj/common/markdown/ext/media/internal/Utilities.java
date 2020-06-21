@@ -11,28 +11,8 @@ final class Utilities {
 	}
 
 	public static String resolveYoutubeSrc(String src) {
-		String urlStr = src;
-		URL url = null;
-		try {
-			url = new URL(urlStr);
-		} catch (MalformedURLException e) {
-			if (e.getMessage().startsWith("no protocol")) {
-				if (urlStr.startsWith("//")) {
-					urlStr = "http:" + urlStr;
-				} else {
-					urlStr = "http://" + urlStr;
-				}
-
-				try {
-					url = new URL(urlStr);
-				} catch (MalformedURLException e2) {
-					return null;
-				}
-			} else {
-				return null;
-			}
-		}
-
+		URL url=parseURL(src);
+		if(url==null)return null;
 		String host = url.getHost();
 		if (!"/watch".equals(url.getPath())&&"youtu.be".equals(host)) {
 			String v = url.getPath().substring(1);
@@ -86,28 +66,8 @@ final class Utilities {
 	}
 
 	public static String resolveBilibiliSrc(String src) {
-		String urlStr = src;
-		URL url = null;
-		try {
-			url = new URL(urlStr);
-		} catch (MalformedURLException e) {
-			if (e.getMessage().startsWith("no protocol")) {
-				if (urlStr.startsWith("//")) {
-					urlStr = "http:" + urlStr;
-				} else {
-					urlStr = "http://" + urlStr;
-				}
-
-				try {
-					url = new URL(urlStr);
-				} catch (MalformedURLException e2) {
-					return null;
-				}
-			} else {
-				return null;
-			}
-		}
-
+		URL url=parseURL(src);
+		if(url==null)return null;
 		String host = url.getHost();
 		String file = url.getPath().substring(1);
 		if(file.startsWith("video/")) {
@@ -187,6 +147,30 @@ final class Utilities {
 		}
 	}
 
+	public static URL parseURL(String urlStr) {
+		URL url = null;
+		try {
+			url = new URL(urlStr);
+		} catch (MalformedURLException e) {
+			if (e.getMessage().startsWith("no protocol")) {
+				if (urlStr.startsWith("//")) {
+					urlStr = "http:" + urlStr;
+				} else {
+					urlStr = "http://" + urlStr;
+				}
+
+				try {
+					url = new URL(urlStr);
+				} catch (MalformedURLException e2) {
+					return null;
+				}
+			} else {
+				return null;
+			}
+		}
+		return url;
+	}
+	
 	public static String getFilename(String path) {
 		int lastSlash = path.lastIndexOf("/");
 		return path.substring(lastSlash + 1, path.length());
