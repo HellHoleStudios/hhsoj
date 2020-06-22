@@ -50,14 +50,14 @@
 		
 		<hr />
 		<div class="sm-float-right">
-			<p>
+			<p class="mono-font">
 			Submitted <%=StyleUtil.shortDate(s.submitTime/1000)%><br/>
 			<%=new Date(s.submitTime)%><br/>
 			Judger: <%=s.judger%>
 			</p>
 		</div>
 		<div>
-			<p>
+			<p class="mono-font">
 			<i class="fa fa-clock-o"></i><span> <%=s.getRunTime() %> ms</span> / 
 	  		<i class="fa fa-database"></i><span> <%=s.getRunMem() %> KB</span><br/>
 			<span class="badge score-badge" style="background:<%=StyleUtil.colorize(s.score) %>;"><%=(s.isFinal?"Final":s.test)%></span>

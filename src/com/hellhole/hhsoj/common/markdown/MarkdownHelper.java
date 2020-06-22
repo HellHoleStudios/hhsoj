@@ -24,6 +24,8 @@ public class MarkdownHelper {
 				TocExtension.create(),
 				AnchorLinkExtension.create(),
 				MediaTagsExtension.create()));
+		options.set(HtmlRenderer.GENERATE_HEADER_ID, true);
+		options.set(AnchorLinkExtension.ANCHORLINKS_NO_BLOCK_QUOTE, true);
 		options.set(AnchorLinkExtension.ANCHORLINKS_WRAP_TEXT, false);
 		options.set(AnchorLinkExtension.ANCHORLINKS_TEXT_PREFIX,"<img class=\"octicon\" src=\"assets/img/anchor.svg\" />");
 		options.set(AnchorLinkExtension.ANCHORLINKS_ANCHOR_CLASS,"anchor");

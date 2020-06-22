@@ -9,15 +9,19 @@ body {
 	background: #f8f8f8;
 }
 
+.sans-font {
+	font-family: 'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Noto Sans CJK JP', 'Noto Sans SC', 'Noto Sans', 'Roboto', sans-serif;
+}
+
+.mono-font {
+	font-family: 'Consolas', 'Ubuntu Mono', 'Lucida Console', monospace;
+}
+
 p, h1, h2, h3, h4, h5, h6 {
 	font-family: 'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Noto Sans CJK JP', 'Noto Sans SC', 'Noto Sans', 'Roboto', sans-serif;
 }
 
-[class~="title"] {
-	font-family: 'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Noto Sans CJK JP', 'Noto Sans SC', 'Noto Sans', 'Roboto', sans-serif;
-}
-
-span, th, td, pre, code {
+pre, code {
 	font-family: 'Consolas', 'Ubuntu Mono', 'Lucida Console', monospace;
 }
 
@@ -27,13 +31,9 @@ hr {
 	clear: both;
 }
 
-[class~="btn"], input[type~=button], input[type~=submit], button {
+a[class~="btn"], input[type~=button], input[type~=submit], button {
 	margin: 5px;
 	font-family: 'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Noto Sans CJK JP', 'Noto Sans SC', 'Noto Sans', 'Roboto', sans-serif;
-}
-
-a[class~="btn"] {
-	margin: 5px;
 }
 
 div[class~="input-group"] {
@@ -157,7 +157,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	text-align: right;
 }
 
-.title-right p, .title-right span, .title-right i, .title-right b {
+p[class~="title-right"], span[class~="title-right"] {
 	color: #777;
 }
 
@@ -177,7 +177,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	clear: both;
 }
 
-#statement h1, h2, h3, h4, h5, h6 {
+.statement h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 }
 
@@ -458,6 +458,7 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	font-size: 15px;
 	font-weight: bold;
 	color: #fff;
+	font-family: 'Consolas', 'Ubuntu Mono', 'Lucida Console', monospace;
 }
 
 .status-card-col {

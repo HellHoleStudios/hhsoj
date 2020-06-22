@@ -39,7 +39,7 @@
 		<button class="btn btn-secondary" style="float:right;" onclick="reloadMathjax()">Render Mathjax Manually</button>
 		<a class="btn btn-primary" style="float:right;" href="submit.jsp?set=<%=p.set%>&id=<%=p.id%>">Submit</a>
 		<a class="btn btn-secondary" style="float:right;" href="plist.jsp?id=<%=p.set%>">Problemset</a>
-		<span><%=p.tl %>ms / <%=p.ml %> KB<br/>Difficulty:<%=p.diff %>x</span>
+		<span class="mono-font"><%=p.tl %>ms / <%=p.ml %> KB<br/>Difficulty:<%=p.diff %>x</span>
 		
 		<hr/>
 		<%
@@ -51,7 +51,7 @@
 				data=FileUtil.readFile(f1.getAbsolutePath());
 			}
 		%>
-		<div id="statement"><%=Sanitizer.sanitizeMarkdown(MarkdownHelper.convert(data)) %></div>
+		<div class=".statement"><%=Sanitizer.sanitizeMarkdown(MarkdownHelper.convert(data)) %></div>
 		<hr/>
 		
 		<a class="btn btn-primary" href="submit.jsp?set=<%=p.set%>&id=<%=p.id%>">Submit</a>
