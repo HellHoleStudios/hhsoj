@@ -4,7 +4,7 @@
 <html>
 <head>
 <jsp:include page="head.jsp"></jsp:include>
-<title>HHSOJ Essential</title>
+<title>HHSOJ</title>
 </head>
 <body>
 	<jsp:include page="topbar.jsp"></jsp:include>

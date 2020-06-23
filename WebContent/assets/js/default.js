@@ -79,15 +79,26 @@ function reloadIOStyle(){
 }
 
 function reloadMathJax(){
+	MathJax.Hub.Config({
+		tex2jax: {
+	    	skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+	    	inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+	    	processEscapes: true
+	    }
+	});
+	MathJax.Hub.Queue(function() {
+		var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+        	all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+	});
 	MathJax.Hub.Queue(['Typeset',MathJax.Hub]);
 }
 
-addTask(10,reloadHighlight);
 addTask(20,reloadTableStyle);
 addTask(100,reloadCopyButton);
 addTask(1000,reloadIOStyle);
-addTask(10000,reloadMathJax);
 
-document.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('load', (event) => {
 	reloadAll();
 });

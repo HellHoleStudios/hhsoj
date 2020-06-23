@@ -4,7 +4,7 @@
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top topbar">
 	<a class="navbar-brand" href="<%=request.getContextPath().replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")%>/"> 
-		<img src="assets/img/hhsoj_ct_128x.png" alt="Logo">
+		<img src="assets/img/hhsoj_ct_64x.png" alt="Logo">
 	</a>
 
 	<button class="navbar-toggler" type="button" data-toggle="collapse"

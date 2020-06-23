@@ -379,37 +379,9 @@ p[class~="title-right"], span[class~="title-right"] {
 
 /* Copy button */
 
-@media (min-width: 768px) {
+@media (min-width: 576px) {
 	.copy-btn-wrapper {
 		display: block ! important;
-	}
-	
-	.sample-in {
-		width: 48%;
-		float: left;
-	}
-	
-	.sample-out {
-		width: 48%;
-		float: right;
-	}
-	
-	.sample-in-wrapper {
-		width: 48%;
-		float: left;
-	}
-	
-	.sample-in-wrapper .copy-btn {
-		top: 8px;
-	}
-	
-	.sample-out-wrapper {
-		width: 48%;
-		float: right;
-	}
-	
-	.sample-out-wrapper .copy-btn {
-		top: 8px;
 	}
 }
 
@@ -442,6 +414,38 @@ p[class~="title-right"], span[class~="title-right"] {
 
 .colored-header span {
 	color: #fff;
+}
+
+/* I/O Format */
+
+@media (min-width: 768px) {
+	.sample-in {
+		width: 48%;
+		float: left;
+	}
+	
+	.sample-out {
+		width: 48%;
+		float: right;
+	}
+	
+	.sample-in-wrapper {
+		width: 48%;
+		float: left;
+	}
+	
+	.sample-in-wrapper .copy-btn {
+		top: 8px;
+	}
+	
+	.sample-out-wrapper {
+		width: 48%;
+		float: right;
+	}
+	
+	.sample-out-wrapper .copy-btn {
+		top: 8px;
+	}
 }
 
 /* Status card */
