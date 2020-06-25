@@ -17,11 +17,18 @@ body {
 	font-family: 'Consolas', 'Ubuntu Mono', 'Lucida Console', monospace;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-family: 'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Noto Sans CJK JP', 'Noto Sans SC', 'Noto Sans', 'Roboto', sans-serif;
 }
 
-pre, code {
+pre,
+code {
 	font-family: 'Consolas', 'Ubuntu Mono', 'Lucida Console', monospace;
 }
 
@@ -31,7 +38,10 @@ hr {
 	clear: both;
 }
 
-a[class~="btn"], input[type~=button], input[type~=submit], button {
+a[class~="btn"],
+input[type~=button],
+input[type~=submit],
+button {
 	margin: 5px;
 	font-family: 'Noto Sans CJK SC', 'Noto Sans CJK TC', 'Noto Sans CJK JP', 'Noto Sans SC', 'Noto Sans', 'Roboto', sans-serif;
 }
@@ -40,7 +50,10 @@ div[class~="input-group"] {
 	margin: 5px;
 }
 
-.nostyle, .nostyle:hover, .nostyle:visited, .notstyle:active {
+.nostyle,
+.nostyle:hover,
+.nostyle:visited,
+.notstyle:active {
 	color: inherit;
 	text-decoration: none;
 }
@@ -68,13 +81,19 @@ pre > code {
 	padding: 0 !important;
 }
 
-code, kbd, pre, samp {
+code,
+kbd,
+pre,
+samp {
 	padding: 3px 6px !important;
 	border-radius: 3px;
 	background-color: #f0f0f0;
 }
 
-code:empty, kdb:empty, pre:empty, samp:empty {
+code:empty,
+kdb:empty,
+pre:empty,
+samp:empty {
 	border-radius: 0;
 	visibility: hidden;
 }
@@ -100,8 +119,12 @@ code:empty, kdb:empty, pre:empty, samp:empty {
 	visibility: hidden;
 }
 
-h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
-	h5:hover .octicon, h6:hover .octicon {
+h1:hover .octicon,
+h2:hover .octicon,
+h3:hover .octicon,
+h4:hover .octicon,
+h5:hover .octicon,
+h6:hover .octicon {
 	visibility: visible;
 }
 
@@ -157,7 +180,8 @@ h1:hover .octicon, h2:hover .octicon, h3:hover .octicon, h4:hover .octicon,
 	text-align: right;
 }
 
-p[class~="title-right"], span[class~="title-right"] {
+p[class~="title-right"],
+span[class~="title-right"] {
 	color: #777;
 }
 
@@ -177,7 +201,12 @@ p[class~="title-right"], span[class~="title-right"] {
 	clear: both;
 }
 
-.statement h1, h2, h3, h4, h5, h6 {
+.statement h1,
+.statement h2,
+.statement h3,
+.statement h4,
+.statement h5,
+.statement h6 {
 	font-weight: bold;
 }
 

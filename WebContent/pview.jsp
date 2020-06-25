@@ -51,7 +51,7 @@
 				data=FileUtil.readFile(f1.getAbsolutePath());
 			}
 		%>
-		<div class=".statement"><%=Sanitizer.sanitizeMarkdown(MarkdownHelper.convert(data)) %></div>
+		<div class="statement"><%=Sanitizer.sanitizeMarkdown(MarkdownHelper.convert(data)) %></div>
 		<hr/>
 		
 		<a class="btn btn-primary" href="submit.jsp?set=<%=p.set%>&id=<%=p.id%>">Submit</a>
