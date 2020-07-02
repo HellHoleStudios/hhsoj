@@ -213,12 +213,15 @@ span[class~="title-right"] {
 /* topbar */
 
 .topbar-item a {
-	transition: 0.2s;
 	font-weight: bold;
 	font-size: 22px;
 	line-height: 34px;
 	padding-left: 8px !important;
 	padding-right: 8px !important;
+}
+
+.topbar-item {
+	transition: 0.2s;
 }
 
 .topbar-item:hover {
