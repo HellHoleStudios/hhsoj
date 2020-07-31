@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" href="assets/img/hhsoj_bt_16x.png" sizes="16x16">
 <link rel="icon" type="image/png" href="assets/img/hhsoj_bt_32x.png" sizes="32x32">
 <link rel="icon" type="image/png" href="assets/img/hhsoj_bt_128x.png" sizes="128x128">
-<link rel="icon" type="image/png" href="assets/img/hhsoj_bt.svg" sizes="512x512">
+<link rel="icon" type="image/svg+xml" href="assets/img/hhsoj_bt.svg" sizes="512x512">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=optional">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=optional">
