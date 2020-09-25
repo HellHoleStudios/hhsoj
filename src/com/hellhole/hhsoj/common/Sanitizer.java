@@ -149,6 +149,6 @@ public class Sanitizer {
 
 	public static String encodeEntity(String s) {
 		return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("\"", "&quot;")
-				.replace("'", "&#x27").replace("/", "&#x2f");
+				.replace("'", "&#x27;").replace("/", "&#x2f;");
 	}
 }

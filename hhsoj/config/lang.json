@@ -1,20 +1,20 @@
 {
 	"cpp":{
 		"ext":"cpp",
-		"aceName":"c_cpp",
 		"name":"GNU C++ 11",
 		"compileCmd":["g++","Main.cpp","-o","Main.exe","-O2","-DONLINE_JUDGE","-std=gnu++11"],
 		"runCmd":["./Main.exe"],
-		"opCode":[1,2,3,4],
-		"file":[]
+		"opCode":[21,158,12,228,3,8,59,231,202,5,211,186,9,10,11,2,0,89,14,205,218,234,201,63,1,20,257,17],
+		"file":["/etc/ld.so.cache","/usr/lib/x86_64-linux-gnu/libstdc++.so.6","/lib/x86_64-linux-gnu/libm.so.6","/lib/x86_64-linux-gnu/libgcc_s.so.1","/lib/x86_64-linux-gnu/libc.so.6"],
+		"aceName":"c_cpp"
 	},
 	"python":{
 		"ext":"py",
-		"aceName":"python",
 		"name":"Python 3",
 		"compileCmd":[],
 		"runCmd":["python3","Main.py"],
-		"opCode":[12,21,257,5,9,3,0,10,158,11,218,273,13,14,302,202,318,16,4,89,99,131,78,72,8,39,32,107,102,108,104,6,79,1,231],
-		"file":[]
+		"opCode":[12,21,257,5,9,3,0,10,158,11,218,273,13,14,302,202,318,16,4,89,99,131,78,72,8,39,32,107,102,108,104,6,79,1,231,217,17],
+		"file":["Main.py"],
+		"aceName":"python"
 	}
 }

@@ -1,1 +1,0 @@
-{"code":"zjs!","lang":"cpp","author":"IAMZJS","submitTime":1592721013378,"judger":"Judger1","id":11,"res":{},"compilerInfo":"Judge failed:java.io.IOException: Cannot run program \"chmod\" (in directory \"judge\"): CreateProcess error\u003d2, 系统找不到指定的文件。","score":0.0,"isFinal":true,"problemSet":"testProblemset","problemId":"testP","test":"Init"}
