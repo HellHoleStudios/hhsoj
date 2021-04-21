@@ -46,7 +46,7 @@
 			String path=TomcatHelper.getProblemPath(set,id);
 			
 			File f1=new File(path+"/statement.md");
-			String data="zjszjs";
+			String data="[Download Statement PDF](http://localhost:8080/hhsoj/requirePDF?set="+p.set+"&id="+p.id+")";
 			if(f1.exists()){
 				data=FileUtil.readFile(f1.getAbsolutePath());
 			}
