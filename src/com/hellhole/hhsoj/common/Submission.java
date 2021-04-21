@@ -49,6 +49,11 @@ public class Submission {
 	 */
 	public String test="Init";
 	
+	/**
+	 * The dataset version of the submission
+	 */
+	public int datasetVer;
+	
 	public int getRunTime(){
 		int ans=0;
 		for(Entry<String, TestsetResult> e:res.entrySet()){

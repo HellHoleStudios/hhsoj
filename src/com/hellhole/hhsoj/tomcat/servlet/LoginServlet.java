@@ -42,6 +42,11 @@ public class LoginServlet extends HttpServlet {
 		for(User x:usr){
 			if(x.username.equals(user) && x.password.equals(pass)){
 				request.getSession().setAttribute("username", user);
+				
+				if(x.isAdmin) {
+					request.getSession().setAttribute("admin", true);
+				}
+				
 				response.getWriter().append("OK");
 				return;
 			}

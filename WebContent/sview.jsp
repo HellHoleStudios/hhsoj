@@ -46,14 +46,15 @@
 		<h1 class="title-left">#<%=id%> </h1>
 		<i style="font-size:20px;"> by <%=Sanitizer.encodeEntity(s.author)%></i>
 		
-		<a href="rejudge.jsp?id=<%=id%>" class="title-right btn btn-primary">Rejudge</a>
+		<a href="rejudgeS?id=<%=id%>" class="title-right btn btn-primary">Rejudge</a>
 		
 		<hr />
 		<div class="sm-float-right">
 			<p class="mono-font">
 			Submitted <%=StyleUtil.shortDate(s.submitTime/1000)%><br/>
 			<%=new Date(s.submitTime)%><br/>
-			Judger: <%=s.judger%>
+			Judger: <%=s.judger%> <br/>
+			Dataset Version: v<%=s.datasetVer %>
 			</p>
 		</div>
 		<div>

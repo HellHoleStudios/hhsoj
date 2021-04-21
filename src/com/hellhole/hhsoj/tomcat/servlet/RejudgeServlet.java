@@ -21,45 +21,49 @@ import com.hellhole.hhsoj.tomcat.util.TomcatHelper;
 /**
  * Servlet implementation class SubmitServlet
  */
-@WebServlet("/submitS")
-public class SubmitServlet extends HttpServlet {
+@WebServlet("/rejudgeS")
+public class RejudgeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String set=request.getParameter("set");
 		String id=request.getParameter("id");
-		String code=request.getParameter("code");
-		String lang=request.getParameter("lang");
 		
 		PrintWriter out=response.getWriter();
-		if(set==null || id==null || code==null || lang==null){
+		if(id==null){
 			out.print("Bad argument");
 			return;
 		}
 		
-		String usr=(String) request.getSession().getAttribute("username");
+		Boolean usr=(Boolean) request.getSession().getAttribute("admin");
 		if(usr==null){
-			out.print("Login first!");
+			out.print("Not admin!");
 			return;
 		}
 		
-		Problem p=TomcatHelper.getProblem(set, id);
+		Submission sub=TomcatHelper.getSubmission(id);
+		if(sub==null) {
+			out.print("Submission not found");
+			return;
+		}
+		
+		Problem p=TomcatHelper.getProblem(sub.problemSet, sub.problemId);
 		if(p==null){
 			out.print("Problem Not Found");
 			return;
 		}
 		
-		Problemset ps=TomcatHelper.getProblemset(set);
+		Problemset ps=TomcatHelper.getProblemset(sub.problemSet);
 		if(ps.stTime>System.currentTimeMillis()){
 			out.print("Problem Not Public");
 			return;
@@ -72,7 +76,7 @@ public class SubmitServlet extends HttpServlet {
 			
 			Socket s=new Socket("localhost", TomcatHelper.config.port);
 			
-			Submission blank=FileUtil.generateBlankSubmission(usr, code, lang, TomcatHelper.getSubmissionCount(), id, set,p.ver);
+			Submission blank=FileUtil.generateBlankSubmission(sub.author, sub.code, sub.lang, sub.id, sub.problemId, sub.problemSet, p.ver);
 			
 			Gson gs=new Gson();
 			String js=gs.toJson(blank);

@@ -147,6 +147,11 @@ public class Sanitizer {
 		return true;
 	}
 
+	/**
+	 * Wrap characters into HTML format like amp and lt
+	 * @param s
+	 * @return
+	 */
 	public static String encodeEntity(String s) {
 		return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("\"", "&quot;")
 				.replace("'", "&#x27;").replace("/", "&#x2f;");

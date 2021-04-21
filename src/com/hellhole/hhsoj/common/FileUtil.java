@@ -49,7 +49,7 @@ public class FileUtil {
 		return gs.fromJson(readFile(path),Problem.class);
 	}
 	
-	public static Submission generateBlankSubmission(String author,String code,String lang,int id,String pId,String pSet){
+	public static Submission generateBlankSubmission(String author,String code,String lang,long id,String pId,String pSet,int ver){
 		Submission s=new Submission();
 		s.author=author;
 		s.code=code;
@@ -63,6 +63,7 @@ public class FileUtil {
 		s.res=new HashMap<>();
 		s.score=0;
 		s.submitTime=System.currentTimeMillis();
+		s.datasetVer=ver;
 		return s;
 	}
 
