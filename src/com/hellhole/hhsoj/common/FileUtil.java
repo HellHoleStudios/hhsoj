@@ -76,7 +76,6 @@ public class FileUtil {
 			
 			int read=br.read(c);
 			
-			
 			String s=new String(c,0,read);
 			if(read==limit){
 				s+="<...>";
@@ -110,5 +109,9 @@ public class FileUtil {
 
 	public static Submission readSubmissionInfo(String path) {
 		return gs.fromJson(readFile(path),Submission.class);
+	}
+	
+	public static StandingTable readStandingTable(String path) {
+		return gs.fromJson(readFile(path),StandingTable.class);
 	}
 }

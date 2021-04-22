@@ -10,4 +10,5 @@ public class Problemset {
 	public String id;
 	public long stTime;
 	public long edTime;
+	public String policy;
 }

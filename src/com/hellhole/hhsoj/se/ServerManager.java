@@ -6,10 +6,14 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Vector;
+import java.util.concurrent.ConcurrentHashMap;
 
 import com.google.gson.Gson;
 import com.hellhole.hhsoj.common.FileUtil;
+import com.hellhole.hhsoj.common.Problemset;
+import com.hellhole.hhsoj.common.StandingTable;
 import com.hellhole.hhsoj.common.Submission;
 import com.hellhole.hhsoj.tomcat.util.TomcatHelper;
 
@@ -29,6 +33,7 @@ public class ServerManager {
 	}
 	
 	public Vector<Judger> judgers=new Vector<>();
+	public ConcurrentHashMap<String,StandingTable> standings=new ConcurrentHashMap<>();
 	
 	public synchronized void addJudger(String name,Socket sock,DataInputStream dis,DataOutputStream dos){
 		System.out.println("Added new judge:"+name+" from "+sock);
@@ -80,11 +85,40 @@ public class ServerManager {
 		//debug
 //		addSubmission(CommonUtil.generateBlankSubmission("XGN", "#include <iostream>\nusing namespace std;\nint main(){cout<<\"Hello,World\"<<endl;}", "cpp", 0, "testP", "testProblemSet"));
 		
+		
 		port=Integer.parseInt(args[0]);
 		start(port);
 	}
 	
+	public void loadStandingCache() {
+		System.out.println("Reading Standing Cache");
+		ArrayList<Problemset> pss=TomcatHelper.getProblemsets();
+		
+		File dir=new File(TomcatHelper.getConfig().path+"/cache");
+		if(!dir.exists()) {
+			dir.mkdirs();
+			System.out.println("Created Cache Directory");
+		}
+		
+		for(Problemset ps:pss) {
+			System.out.println("Reading Standing Cache For "+ps.id);
+			StandingTable table=FileUtil.readStandingTable(TomcatHelper.getConfig().path+"/cache/"+ps.id);
+			if(table==null) {
+				table=new StandingTable();
+				table.policy=(ps.policy==null?"best":ps.policy);
+				table.name=ps.name;
+				System.out.println("Created "+table.policy+" for "+table.name);
+			}
+			standings.put(ps.id, table);
+		}
+		
+		System.out.println("Finished Reading Cache");
+	}
+	
 	public void start(int port) throws Exception{
+		//load standing cache
+		loadStandingCache();
+		
 		ServerSocket ss=new ServerSocket(port);
 		System.out.println("ServerSocket started successfully ->"+port);
 		while(true){
@@ -104,6 +138,15 @@ public class ServerManager {
 				new File(path).mkdirs();
 			}
 			FileUtil.writeFile(path+sub.id+".json", js);
+			
+			//update standing
+			standings.get(sub.problemSet).tryUpdate(sub.author, sub.problemId, sub);
+			
+			if(sub.isFinal) {
+				FileUtil.writeFile(TomcatHelper.getConfig().path+"/cache/"+sub.problemSet, gs.toJson(standings.get(sub.problemSet)));
+				System.out.println("Write Standing Cache of "+sub.problemSet);
+			}
+			
 		}catch(Exception e){
 			System.err.println("Cannot save submission!");
 			e.printStackTrace();
