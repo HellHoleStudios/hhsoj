@@ -86,7 +86,7 @@ public class ServerManager {
 	
 	public void start(int port) throws Exception{
 		ServerSocket ss=new ServerSocket(port);
-		System.out.println("ServerSocket started successfully");
+		System.out.println("ServerSocket started successfully ->"+port);
 		while(true){
 			Socket s=ss.accept();
 			

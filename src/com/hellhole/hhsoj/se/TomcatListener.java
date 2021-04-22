@@ -3,6 +3,8 @@ package com.hellhole.hhsoj.se;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import com.hellhole.hhsoj.tomcat.util.TomcatHelper;
+
 public class TomcatListener implements ServletContextListener{
 	public ManagerThread mThread;
 	
@@ -12,7 +14,7 @@ public class TomcatListener implements ServletContextListener{
 	}
 	
 	public void contextInitialized(ServletContextEvent sce) {
-		mThread=new ManagerThread(7512);
+		mThread=new ManagerThread(TomcatHelper.getConfig().port);
 		mThread.start();
 	}
 }

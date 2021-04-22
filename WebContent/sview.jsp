@@ -46,8 +46,24 @@
 		<h1 class="title-left">#<%=id%> </h1>
 		<i style="font-size:20px;"> by <%=Sanitizer.encodeEntity(s.author)%></i>
 		
-		<a href="rejudgeS?id=<%=id%>" class="title-right btn btn-primary">Rejudge</a>
+		<%if(session.getAttribute("admin")!=null && (Boolean)session.getAttribute("admin")==true){%>
+			<a href="javascript:rejudge()" class="title-right btn btn-primary">Rejudge</a>
+		<%} %>
 		
+		<script>
+			function rejudge(){
+				$.post('rejudgeS?id=<%=id%>',function(ret){
+					if(ret.trim()=="OK"){
+						location.reload()
+					}else{
+						alert(ret)
+					}
+				})
+				
+				
+			}
+			
+		</script>
 		<hr />
 		<div class="sm-float-right">
 			<p class="mono-font">
