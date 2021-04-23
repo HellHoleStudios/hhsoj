@@ -29,6 +29,8 @@
 			response.sendRedirect("error/404.jsp");
 		}
 	%>
+		<hr/>
+		<a href="pstanding.jsp?id=<%=request.getParameter("id") %>">Standing</a>
 	</div>
 </body>
 </html>

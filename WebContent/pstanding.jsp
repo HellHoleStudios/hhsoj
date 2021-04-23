@@ -1,3 +1,9 @@
+<%@page import="com.hellhole.hhsoj.common.StandingCell"%>
+<%@page import="com.hellhole.hhsoj.common.Problem"%>
+<%@page import="java.io.File"%>
+<%@page import="com.hellhole.hhsoj.common.Problemset"%>
+<%@page import="com.hellhole.hhsoj.common.FileUtil"%>
+<%@page import="com.hellhole.hhsoj.common.StandingTable"%>
 <%@page import="com.hellhole.hhsoj.common.StyleUtil"%>
 <%@page import="com.hellhole.hhsoj.common.Sanitizer"%>
 <%@page import="java.util.Comparator"%>
@@ -20,6 +26,7 @@
 <body>
 <%
 	int pageId=1,renSize=50;
+	String pid="";
 	try{
 		pageId=Integer.parseInt(request.getParameter("page"));
 	}catch(Exception e){
@@ -32,72 +39,99 @@
 		renSize=50;
 	}
 	
-	ArrayList<Submission> arr=TomcatHelper.getAllSubmissions();
-	arr.sort(new Comparator<Submission>(){
-		public int compare(Submission a,Submission b){
-	return -Long.compare(a.id, b.id);
-		}
-	});
+	try{
+		pid=request.getParameter("id");
+	}catch(Exception e){
+		out.println("Please enter problemset ID");
+		return;
+	}
+	
+	
 	renSize=Math.max(1,renSize);
 	
-	int mxP=(arr.size()+renSize-1)/renSize;
+	StandingTable st=FileUtil.readStandingTable(TomcatHelper.getConfig().path+"/cache/"+pid);
+	Problemset ps=TomcatHelper.getProblemset(pid);
+	
+	if(ps==null){
+		out.println("Cannot find given problemset");
+		return;
+	}
+	if(st==null){
+		st=new StandingTable(ps);
+	}
+	
+	ArrayList<Problem> p=TomcatHelper.getAllProblems(pid);
+	int mxP=(st.table.size()+renSize-1)/renSize;
 	pageId=Math.min(pageId,mxP);
 	pageId=Math.max(1,pageId);
 %>
 
 <jsp:include page="topbar.jsp"></jsp:include>
 	<div class="container">
-		<h1 class="title-left">Status #<%=pageId%>/<%=mxP%></h1>
+		<h1 class="title-left">Standing of <%=st.name %> (Page <%=pageId %>/<%=mxP %>)</h1>
 		<ul class="pagination pagination-sm title-right" style="margin-top:15px;">
-		    <li class="page-item"><a class="page-link" href="?page=<%=pageId-10%>&renSize=<%=renSize%>">&lt;&lt;10</a></li>
-		    <li class="page-item"><a class="page-link" href="?page=<%=pageId-1%>&renSize=<%=renSize%>">&lt;</a></li>
-		    <li class="page-item"><a class="page-link" href="?page=<%=pageId+1%>&renSize=<%=renSize%>">&gt;</a></li>
-		    <li class="page-item"><a class="page-link" href="?page=<%=pageId+10%>&renSize=<%=renSize%>">10&gt;&gt;</a></li>
+		    <li class="page-item"><a class="page-link" href="?page=<%=pageId-10%>&renSize=<%=renSize%>&id=<%=pid%>">&lt;&lt;10</a></li>
+		    <li class="page-item"><a class="page-link" href="?page=<%=pageId-1%>&renSize=<%=renSize%>&id=<%=pid%>">&lt;</a></li>
+		    <li class="page-item"><a class="page-link" href="?page=<%=pageId+1%>&renSize=<%=renSize%>&id=<%=pid%>">&gt;</a></li>
+		    <li class="page-item"><a class="page-link" href="?page=<%=pageId+10%>&renSize=<%=renSize%>&id=<%=pid%>">10&gt;&gt;</a></li>
 		</ul>
   		<hr/>
-		<%
-			for(int i=(pageId-1)*renSize;i<Math.min(arr.size(),pageId*renSize);i++){
-					Submission s=arr.get(i);
-		%>
-			<div class="status-card row card">
-		  		<div class="status-card-col col-sm-2">
-		  			<a class="status-card-id" style="flex-grow:1;max-height:30px;"href="sview.jsp?id=<%=s.id%>">#<%=s.id%></a>
-		  			<p class="status-card-author"><b><%=Sanitizer.encodeEntity(s.author)%></b></p>
-		  		</div>
-	  			<div class="status-card-col col-sm-3">
-	  				<a class="nostyle" href="sview.jsp?id=<%=s.id%>">
-		  				<span class="badge score-badge" style="background:<%=StyleUtil.colorize(s.score) %>;"><%=(s.isFinal?"Final":s.test)%></span>
-		  				<span class="badge score-badge" style="margin-top:4px;background:<%=StyleUtil.colorize(s.score) %>;"><%=String.format("%.0f", 100*s.score) %></span>
+		
+		<div class="container">                                                                                      
+		  <div class="table-responsive">          
+		  <table class="table">
+		    <thead>
+		      <tr>
+		        <th>Rank</th>
+		        <th>User</th>
+		      <%for(Problem prob:p){ %>
+		      	<th><%=prob.id %></th>
+		      <%} %>
+		      	<th>∑</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		    <%for(int i=(pageId-1)*renSize;i<Math.min(st.table.size(),pageId*renSize);i++){%>
+		      <tr>
+		        <td><%=i+1 %></td>
+		        <td><%=st.table.get(i).name %></td>
+		        <%for(Problem prob:p){
+		        	StandingCell cell=st.table.get(i).col.get(prob.id);
+		        	if(cell==null){
+		        %>
+		        <td>-</td>
+		        <%  }else{ %>
+		        <td>
+	  				<a class="nostyle" href="sview.jsp?id=<%=cell.subId%>">
+		  				<span class="badge score-badge" style="margin-top:4px;background:<%=StyleUtil.colorize((float)cell.score) %>;"><%=String.format("%.0f", 100*cell.score) %></span>
 	  				</a>
-	  			</div>
-	  			<div class="status-card-col col-sm-3">
-	  				<a href="pview.jsp?set=<%=s.problemSet%>&id=<%=s.problemId %>"><%=s.problemSet%>.<%=s.problemId %></a>
-	  			</div>
-	  			<div class="status-card-col col-sm-4 d-block d-sm-flex">
-	  				<span style="flex-grow:1;">
-	  					<%=StyleUtil.getCommonLangName(s.lang) %><br class="d-none d-sm-block d-md-none"/>
-	  					<i class="fa fa-clock-o"></i><%=s.getRunTime() %>ms
-	  					<i class="fa fa-database"></i><%=s.getRunMem() %>KB
-	  				</span>
-	  				<p class="status-card-time"><%=StyleUtil.shortDate(s.submitTime/1000)%></p>
-	  			</div>
-	  		</div>
-		<%
-			}
-		%>
+	  			</td>
+		        <%}} %>
+		        <td>
+		        
+		  			<span class="badge score-badge" style="margin-top:4px;background:<%=StyleUtil.colorize((float)st.table.get(i).score) %>;"><%=String.format("%.0f", 100*st.table.get(i).score) %></span>
+	  			
+	  			</td>
+		      </tr>
+		    <%} %>
+		    </tbody>
+		  </table>
+		  </div>
+		</div>
+		
 		<hr/>
 		<ul class="pagination pagination-sm sm-float-right">
-		    <li class="page-item"><a class="page-link" href="?page=<%=pageId-10%>&renSize=<%=renSize%>">&lt;&lt;10</a></li>
-		    <li class="page-item"><a class="page-link" href="?page=<%=pageId-1%>&renSize=<%=renSize%>">&lt;</a></li>
-		    <li class="page-item"><a class="page-link" href="?page=<%=pageId+1%>&renSize=<%=renSize%>">&gt;</a></li>
-		    <li class="page-item"><a class="page-link" href="?page=<%=pageId+10%>&renSize=<%=renSize%>">10&gt;&gt;</a></li>
+		    <li class="page-item"><a class="page-link" href="?page=<%=pageId-10%>&renSize=<%=renSize%>&id=<%=pid%>">&lt;&lt;10</a></li>
+		    <li class="page-item"><a class="page-link" href="?page=<%=pageId-1%>&renSize=<%=renSize%>&id=<%=pid%>">&lt;</a></li>
+		    <li class="page-item"><a class="page-link" href="?page=<%=pageId+1%>&renSize=<%=renSize%>&id=<%=pid%>">&gt;</a></li>
+		    <li class="page-item"><a class="page-link" href="?page=<%=pageId+10%>&renSize=<%=renSize%>&id=<%=pid%>">10&gt;&gt;</a></li>
 		</ul>
 		<ul class="pagination pagination-sm">
-			<li class="page-item disabled"><a class="page-link" href="#">Submission Per Page:</a></li>
-			<li class="page-item"><a class="page-link" href="?page=<%=pageId%>&renSize=<%=1%>">1</a></li>
-		    <li class="page-item"><a class="page-link" href="?page=<%=pageId%>&renSize=<%=20%>">20</a></li>
-		    <li class="page-item"><a class="page-link" href="?page=<%=pageId%>&renSize=<%=100%>">100</a></li>
-		    <li class="page-item"><a class="page-link" href="?page=<%=pageId%>&renSize=<%=998244353%>">INF</a></li>
+			<li class="page-item disabled"><a class="page-link" href="#">Person Per Page:</a></li>
+			<li class="page-item"><a class="page-link" href="?page=<%=pageId%>&renSize=<%=1%>&id=<%=pid%>">1</a></li>
+		    <li class="page-item"><a class="page-link" href="?page=<%=pageId%>&renSize=<%=20%>&id=<%=pid%>">20</a></li>
+		    <li class="page-item"><a class="page-link" href="?page=<%=pageId%>&renSize=<%=100%>&id=<%=pid%>">100</a></li>
+		    <li class="page-item"><a class="page-link" href="?page=<%=pageId%>&renSize=<%=998244353%>&id=<%=pid%>">INF</a></li>
 		</ul>
 	</div>
 </body>

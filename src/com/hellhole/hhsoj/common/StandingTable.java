@@ -10,6 +10,15 @@ public class StandingTable {
 	public HashMap<String,Integer> index=new HashMap<>();
 	public long edTime;
 	
+	public StandingTable() {
+	}
+	
+	public StandingTable(Problemset ps) {
+		this.name=ps.name;
+		this.policy=(ps.policy==null?"best":ps.policy);
+		this.edTime=ps.edTime;
+	}
+	
 	public boolean tryUpdate(String usr,String id,Submission s) {
 		if(!index.containsKey(usr)) {
 			index.put(usr, table.size());

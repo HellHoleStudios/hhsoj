@@ -105,10 +105,7 @@ public class ServerManager {
 			System.out.println("Reading Standing Cache For "+ps.id);
 			StandingTable table=FileUtil.readStandingTable(TomcatHelper.getConfig().path+"/cache/"+ps.id);
 			if(table==null) {
-				table=new StandingTable();
-				table.policy=(ps.policy==null?"best":ps.policy);
-				table.name=ps.name;
-				table.edTime=ps.edTime;
+				table=new StandingTable(ps);
 				System.out.println("Created "+table.policy+" for "+table.name);
 			}
 			standings.put(ps.id, table);
@@ -144,10 +141,7 @@ public class ServerManager {
 			//update standing
 			standings.get(sub.problemSet).tryUpdate(sub.author, sub.problemId, sub);
 			
-			if(sub.isFinal) {
-				FileUtil.writeFile(TomcatHelper.getConfig().path+"/cache/"+sub.problemSet, gs.toJson(standings.get(sub.problemSet)));
-				System.out.println("Write Standing Cache of "+sub.problemSet);
-			}
+			FileUtil.writeFile(TomcatHelper.getConfig().path+"/cache/"+sub.problemSet, gs.toJson(standings.get(sub.problemSet)));
 			
 		}catch(Exception e){
 			System.err.println("Cannot save submission!");
