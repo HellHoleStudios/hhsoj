@@ -76,6 +76,21 @@
 		    <li class="page-item"><a class="page-link" href="?page=<%=pageId+10%>&renSize=<%=renSize%>&id=<%=pid%>">10&gt;&gt;</a></li>
 		</ul>
   		<hr/>
+		<%if(session.getAttribute("admin")!=null && (Boolean)session.getAttribute("admin")==true){%>
+			<a href="javascript:rebase()" class="title-right btn btn-primary">Rebase</a>
+		<%} %>
+		
+		<script>
+			function rebase(){
+				$.post("rebaseS?id=<%=pid%>",function(rev){
+					if(rev=="OK"){
+						alert("Success. Please wait for the rebase to finish. This might take a few seconds.")
+					}else{
+						alert(rev)
+					}
+				})
+			}
+		</script>
 		
 		<div class="container">                                                                                      
 		  <div class="table-responsive">          

@@ -3,9 +3,11 @@ package com.hellhole.hhsoj.se;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 
 import com.google.gson.Gson;
 import com.hellhole.hhsoj.common.FileUtil;
+import com.hellhole.hhsoj.common.StandingTable;
 import com.hellhole.hhsoj.common.Submission;
 import com.hellhole.hhsoj.tomcat.util.TomcatHelper;
 
@@ -31,6 +33,22 @@ public class SocketThread extends Thread {
 		
 	}
 	
+	public void rebase() throws Exception{
+		String name=dis.readUTF();
+		ArrayList<Submission> sub=TomcatHelper.getAllSubmissions();
+		StandingTable st=new StandingTable(TomcatHelper.getProblemset(name));
+		for(Submission s:sub) {
+			if(s.problemSet.equals(name)) {
+				st.tryUpdate(s.author, s.problemId, s);
+			}
+		}
+		boss.standings.put(name, st);
+
+		Gson gs=new Gson();
+		FileUtil.writeFile(TomcatHelper.getConfig().path+"/cache/"+name, gs.toJson(st));
+		System.out.println("Rebased:"+name);
+	}
+	
 	public void run(){
 		System.out.println("New connection from "+sock.getInetAddress());
 		
@@ -47,7 +65,9 @@ public class SocketThread extends Thread {
 				dos.writeUTF(FileUtil.readFile(TomcatHelper.getConfig().path+"/config/lang.json"));
 			}else if("submit".equals(op)){
 				addSubmission();
-			}else{
+			}else if("rebase".equals(op)){
+				rebase();
+			}else {
 				System.out.println("Unknown command");
 			}
 			
