@@ -69,6 +69,7 @@
 <jsp:include page="topbar.jsp"></jsp:include>
 	<div class="container">
 		<h1 class="title-left">Standing of <%=st.name %> (Page <%=pageId %>/<%=mxP %>)</h1>
+		
 		<ul class="pagination pagination-sm title-right" style="margin-top:15px;">
 		    <li class="page-item"><a class="page-link" href="?page=<%=pageId-10%>&renSize=<%=renSize%>&id=<%=pid%>">&lt;&lt;10</a></li>
 		    <li class="page-item"><a class="page-link" href="?page=<%=pageId-1%>&renSize=<%=renSize%>&id=<%=pid%>">&lt;</a></li>
@@ -76,7 +77,14 @@
 		    <li class="page-item"><a class="page-link" href="?page=<%=pageId+10%>&renSize=<%=renSize%>&id=<%=pid%>">10&gt;&gt;</a></li>
 		</ul>
   		<hr/>
+  		<div class="sm-float-right">
+			<p class="mono-font">
+			Policy: <%=st.policy %> <br/>
+			Participants: <%=st.table.size() %> <br/>
+			</p>
+		</div>
 		<%if(session.getAttribute("admin")!=null && (Boolean)session.getAttribute("admin")==true){%>
+			<br/>
 			<a href="javascript:rebase()" class="title-right btn btn-primary">Rebase</a>
 		<%} %>
 		
@@ -117,15 +125,15 @@
 		        <td>-</td>
 		        <%  }else{ %>
 		        <td>
-	  				<a class="nostyle" href="sview.jsp?id=<%=cell.subId%>">
-		  				<span class="badge score-badge" style="margin-top:4px;background:<%=StyleUtil.colorize((float)cell.score) %>;"><%=String.format("%.0f", 100*cell.score) %></span>
+		        	
+	  				<a class="nostyle"  href="sview.jsp?id=<%=cell.subId%>">
+		  				<span data-placement="top" data-html="true" data-toggle="tooltip" title="Submission #<%=cell.subId %><br/><%=StyleUtil.shortDate(cell.time/1000) %>" class="badge score-badge" style="margin-top:4px;background:<%=StyleUtil.colorize((float)cell.score) %>;"><%=String.format("%.0f", 100*cell.score) %></span>
 	  				</a>
+	  				
 	  			</td>
 		        <%}} %>
 		        <td>
-		        
 		  			<span class="badge score-badge" style="margin-top:4px;background:<%=StyleUtil.colorize((float)st.table.get(i).score) %>;"><%=String.format("%.0f", 100*st.table.get(i).score) %></span>
-	  			
 	  			</td>
 		      </tr>
 		    <%} %>
@@ -149,5 +157,12 @@
 		    <li class="page-item"><a class="page-link" href="?page=<%=pageId%>&renSize=<%=998244353%>&id=<%=pid%>">INF</a></li>
 		</ul>
 	</div>
+	<script>
+
+	$(document).ready(function(){
+		console.log("???")
+	    $('[data-toggle="tooltip"]').tooltip(); 
+	});
+	</script>
 </body>
 </html>

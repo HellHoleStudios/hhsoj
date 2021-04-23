@@ -21,7 +21,7 @@
 			for(Problemset p:arr){
 				
 		%>
-				<a href="plist.jsp?id=<%=p.id %>"><h1><%=p.name %></h1></a> opens <b><%=StyleUtil.shortDate(p.stTime) %></b> freezes <b><%=StyleUtil.shortDate(p.edTime) %></b>
+				<a href="plist.jsp?id=<%=p.id %>"><h1><%=p.name %></h1></a> opens <b><%=StyleUtil.shortDate(p.stTime/1000) %></b> freezes <b><%=StyleUtil.shortDate(p.edTime/1000) %></b>
 		<%
 			}
 			
