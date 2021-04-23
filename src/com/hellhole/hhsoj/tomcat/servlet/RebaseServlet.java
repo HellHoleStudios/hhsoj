@@ -11,11 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-import com.hellhole.hhsoj.common.FileUtil;
-import com.hellhole.hhsoj.common.Problem;
 import com.hellhole.hhsoj.common.Problemset;
-import com.hellhole.hhsoj.common.Submission;
 import com.hellhole.hhsoj.tomcat.util.TomcatHelper;
 
 /**
