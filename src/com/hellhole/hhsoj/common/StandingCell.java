@@ -15,6 +15,7 @@ public class StandingCell {
 		this.score = score;
 		this.isFinal=isFinal;
 		this.time = time;
+		this.subId=subId;
 	}
 	
 	

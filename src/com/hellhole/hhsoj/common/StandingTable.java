@@ -8,11 +8,16 @@ public class StandingTable {
 	public String name;
 	public String policy;
 	public HashMap<String,Integer> index=new HashMap<>();
+	public long edTime;
 	
 	public boolean tryUpdate(String usr,String id,Submission s) {
 		if(!index.containsKey(usr)) {
 			index.put(usr, table.size());
 			table.add(new StandingRow(usr));
+		}
+		
+		if(s.submitTime>edTime) {
+			return false;
 		}
 		
 		StandingRow row=table.get(index.get(usr));

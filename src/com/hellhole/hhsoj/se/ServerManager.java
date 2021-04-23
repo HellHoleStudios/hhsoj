@@ -26,14 +26,16 @@ import com.hellhole.hhsoj.tomcat.util.TomcatHelper;
 public class ServerManager {
 	private String ip;
 	private int port;
+
+	public Vector<Judger> judgers=new Vector<>();
+	public ConcurrentHashMap<String,StandingTable> standings=new ConcurrentHashMap<>();
+	public Vector<Submission> submissions=new Vector<>();
+	
 	
 	public static void main(String[] args) throws Exception {
 		ServerManager m=new ServerManager();
 		m.solve(args);
 	}
-	
-	public Vector<Judger> judgers=new Vector<>();
-	public ConcurrentHashMap<String,StandingTable> standings=new ConcurrentHashMap<>();
 	
 	public synchronized void addJudger(String name,Socket sock,DataInputStream dis,DataOutputStream dos){
 		System.out.println("Added new judge:"+name+" from "+sock);
@@ -42,7 +44,6 @@ public class ServerManager {
 		notifyJudge();
 	}
 	
-	public Vector<Submission> submissions=new Vector<>();
 	
 	public synchronized void addSubmission(Submission s){
 		submissions.add(s);
@@ -107,6 +108,7 @@ public class ServerManager {
 				table=new StandingTable();
 				table.policy=(ps.policy==null?"best":ps.policy);
 				table.name=ps.name;
+				table.edTime=ps.edTime;
 				System.out.println("Created "+table.policy+" for "+table.name);
 			}
 			standings.put(ps.id, table);
