@@ -1,1 +1,0 @@
-{"id":3,"username":"\u003cscript\u003ealert(\u0027xss\u0027);\u003c/script\u003e","password":"xss","isAdmin":false}
