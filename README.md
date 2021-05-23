@@ -1,7 +1,7 @@
 # HHSOJ-Essential
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/0c72cb688ed84af8964b9fd0f62e3894)](https://www.codacy.com/gh/HellHoleStudios/hhsoj?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=HellHoleStudios/hhsoj&amp;utm_campaign=Badge_Grade)
 
-The 3rd generation HHSOJ!
+The 3.5rd generation HHSOJ!
 
 A light-weight, fast and portable OJ!
 
@@ -29,6 +29,8 @@ Flexmark extensions include:
 
 ## Links
 [Documentation on everything](https://xgn.gitbook.io/hhsoj-essential-doc/)
+
+[Another Documentation](https://hhsoj.readthedocs.io/en/latest/)
 
 [Our Blog](https://blog.hellholestudios.top/)
 
