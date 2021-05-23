@@ -43,5 +43,5 @@ target/
 hs_err_pid*
 
 # hhsoj database files
-hhsoj/submission
-hhsoj/cache
+hhsoj/submission/
+hhsoj/cache/
