@@ -34,4 +34,4 @@ Flexmark extensions include:
 
 [Our Blog](https://blog.hellholestudios.top/)
 
-[How's it going?](https://betaoj.hellholestudios.top/HellOJ)
+[How's it going?](https://oj.hellholestudios.top/)
