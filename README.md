@@ -7,11 +7,11 @@ A light-weight, fast and portable OJ!
 
 Currently in development phase.
 
-**Note: This repository is NOT [XiaoGeNintendo/hhsoj](https://github.com/XiaoGeNintendo/hhsoj).**
+**Note: This repository is NOT [XiaoGeNekidora/hhsoj](https://github.com/XiaoGeNekidora/hhsoj).**
 
-**XiaoGeNintendo/hhsoj is a judge system built on Java SE and Swing. Often referenced as "hhsoj v1"**
+**XiaoGeNekidora/hhsoj is a judge system built on Java SE and Swing. Often referenced as "hhsoj v1"**
 
-This repository is a fork of [XiaoGeNintendo/HHSOJ-Essential](https://github.com/XiaoGeNintendo/HHSOJ-Essential).
+This repository is a fork of [XiaoGeNekidora/HHSOJ-Essential](https://github.com/XiaoGeNekidora/HHSOJ-Essential).
 However I changed the project structure so much that I decided to create a new repo instead of forking.
 This version is equipped with Maven and other development tools.
 
